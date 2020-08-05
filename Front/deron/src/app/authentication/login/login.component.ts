@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginForm } from '../authentication/Handler';
+import { LoginForm } from '../Handler';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Deactivator } from '../DeacGuard';
+import { Deactivator } from '../../DeacGuard';
 declare var $: any;
 @Component({
   selector: 'app-login',

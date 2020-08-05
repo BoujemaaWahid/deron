@@ -5,17 +5,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { RegisterComponent } from './authentication/register/register.component';
 import { DeacGuard } from './DeacGuard';
 import { TrackfocusDirective } from './trackfocus.directive';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { InscriptionComponent } from './authentication/register/inscription/inscription.component';
 @NgModule({
   declarations: [
     AppComponent,
     AuthenticationComponent,
     LoginComponent,
     RegisterComponent,
-    TrackfocusDirective
+    TrackfocusDirective,
+    NotfoundComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,

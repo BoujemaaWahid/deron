@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { RegisterForm } from '../authentication/Handler';
+import { Component } from '@angular/core';
+import { RegisterForm } from '../Handler';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Deactivator } from '../DeacGuard';
-
+import { Deactivator } from '../../DeacGuard';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
