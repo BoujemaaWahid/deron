@@ -1,0 +1,42 @@
+<form id="login_form" class="ui form" [formGroup]="loginForm.loginForm" novalidate>
+  <div class="stackable grid centered">
+    <div class="row">
+      <div class="column">
+        <div class="field">
+          <label [ngClass]="loginForm.VDT('identifiant').error?'shake':''"
+            style="text-align:start; color:white; font-weight: bold; font-size: medium;"
+            for="identifiant">Identifiant</label>
+          <div data-variation="wide" data-tooltip="Email, numéro de téléphone ou votre username"
+            data-position="bottom center" class="ui left icon input">
+            <input appTrackfocus formControlName="identifiant" type="text" id="identifiant" name="identifiant"
+              placeholder="Votre identifiant...">
+            <i class="user icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <div class="field">
+          <label [ngClass]="loginForm.VDT('password').error?'shake':''"
+            style="text-align:start; color:white; font-weight: bold; font-size: medium;" for="password">Mot de
+            passe</label>
+          <div class="ui left icon input">
+            <input appTrackfocus formControlName="password" type="password" id="password" name="password"
+              placeholder="Votre mot de pass...">
+            <i class="key icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <div class="field">
+          <button [disabled]="loginForm.loginForm.invalid" style="width: 100%"
+            class="ui button primary">Connecter</button>
+          <a (click)="toRegister()">Voulez vous créez un compte ? qliquez ici.</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

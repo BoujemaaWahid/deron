@@ -1,0 +1,51 @@
+<form id="register_form" class="ui form" [formGroup]="registerForm.registerForm" novalidate>
+  <div class="two fields">
+
+    <div class="field">
+      <label [ngClass]="registerForm.VDT('email').error?'shake':''"
+        style="text-align:start; color:white; font-weight: bold; font-size: medium;" for="email">Email</label>
+      <div class="ui left icon input">
+        <input appTrackfocus formControlName="email" type="email" id="email" name="email" placeholder="Votre email...">
+        <i class="envelope icon"></i>
+      </div>
+    </div>
+    <div class="field">
+      <label [ngClass]="registerForm.VDT('username').error?'shake':''"
+        style="text-align:start; color:white; font-weight: bold; font-size: medium;" for="email">Username</label>
+      <div class="ui left icon input">
+        <input appTrackfocus formControlName="username" type="text" id="username" name="username"
+          placeholder="Votre nom d'utilisateur...">
+        <i class="user circle icon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="two fields">
+
+    <div class="field">
+      <label [ngClass]="registerForm.VDT('password').error?'shake':''"
+        style="text-align:start; color:white; font-weight: bold; font-size: medium;" for="email">Mot de passe</label>
+      <div class="ui left icon input">
+        <input appTrackfocus formControlName="password" type="password" id="password" name="password"
+          placeholder="Votre mot de passe...">
+        <i class="key icon"></i>
+      </div>
+    </div>
+
+    <div class="field">
+      <label [ngClass]="registerForm.VDT('phone').error?'shake':''"
+        style="text-align:start; color:white; font-weight: bold; font-size: medium;" for="email">Numéro de
+        téléphone</label>
+      <div class="ui left icon input">
+        <input appTrackfocus formControlName="phone" type="text" id="phone" name="phone"
+          placeholder="Votre numéro de téléphone...">
+        <i class="phone icon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <button style="width:100%" [disabled]="registerForm.registerForm.invalid"
+      class="ui button primary">Inscrire</button>
+    <a (click)="toLogin()">Retourner vers la page de connxion</a>
+  </div>
+
+</form>

@@ -1,0 +1,12 @@
+form{width: auto; display: grid; contain: content;}
+.form *{margin-top: 0.5%;}
+label { cursor: pointer; }
+.ui.input .ng-touched.ng-invalid{ border: #d9534f solid; }
+.ui.input .ng-touched.ng-invalid.pulsed{border: 0ch;}
+a{cursor: pointer;}
+@media screen and (min-width: 701px){
+    #login_form{width: 35%; padding-top: 2%; margin-top: -2%;}
+}
+@media screen and (max-width: 700px){
+    #login_form{width: 90%;}
+}

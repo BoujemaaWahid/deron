@@ -1,0 +1,30 @@
+@import '~semantic-ui-css/semantic.min.css';
+@keyframes shaking {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+}
+@keyframes pulsed {
+	0% {
+		box-shadow: 0 0 0 1px #020024;
+	}
+
+	70% {
+		box-shadow: 0 0 0 2px #428bca;
+	}
+
+	100% {
+		box-shadow: 0 0 0 0px #0041ff;
+	}
+}
+.shake{ animation: shaking 0.82s; }
+.pulsed{ animation: pulsed 1.5s infinite;}
