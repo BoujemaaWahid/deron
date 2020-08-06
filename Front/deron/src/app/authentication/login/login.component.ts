@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { LoginForm } from '../Handler';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Deactivator } from '../../DeacGuard';
-declare var $: any;
+import { Deactivator } from '../../Guards/DeacGuard';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,7 +21,5 @@ export class LoginComponent implements Deactivator{
   toRegister(){
     this.route.navigate(['register'], {relativeTo: this.activatedRoute.parent})
   }
-  focusId(){ this.focusd = true; }
-  focusod(){ this.focusd = false; }
 
 }

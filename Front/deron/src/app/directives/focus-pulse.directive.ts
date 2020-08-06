@@ -1,9 +1,10 @@
 import { Directive, HostBinding, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appTrackfocus]'
+  selector: '[appFocusPulse]'
 })
-export class TrackfocusDirective {
+export class FocusPulseDirective {
+
   @HostBinding('class.pulsed')isFocused: boolean;
   constructor() { }
   @HostListener('focus', ['$event']) onFocus(e){
@@ -12,4 +13,5 @@ export class TrackfocusDirective {
   @HostListener('blur', ['$event']) onBlur(e){
     this.isFocused = false;
   }
+
 }

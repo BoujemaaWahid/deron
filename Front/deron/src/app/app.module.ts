@@ -7,19 +7,19 @@ import { AppComponent } from './app.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
-import { DeacGuard } from './DeacGuard';
-import { TrackfocusDirective } from './trackfocus.directive';
+import { DeacGuard } from './Guards/DeacGuard';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { InscriptionComponent } from './authentication/register/inscription/inscription.component';
+import { ValidationComponent } from './authentication/register/validation/validation.component';
+import { FocusPulseDirective } from './directives/focus-pulse.directive';
 @NgModule({
   declarations: [
     AppComponent,
     AuthenticationComponent,
     LoginComponent,
     RegisterComponent,
-    TrackfocusDirective,
     NotfoundComponent,
-    InscriptionComponent
+    ValidationComponent,
+    FocusPulseDirective
   ],
   imports: [
     BrowserModule,

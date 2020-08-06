@@ -5,7 +5,7 @@
       <label [ngClass]="registerForm.VDT('email').error?'shake':''"
         style="text-align:start; color:white; font-weight: bold; font-size: medium;" for="email">Email</label>
       <div class="ui left icon input">
-        <input appTrackfocus formControlName="email" type="email" id="email" name="email" placeholder="Votre email...">
+        <input appFocusPulse formControlName="email" type="email" id="email" name="email" placeholder="Votre email...">
         <i class="envelope icon"></i>
       </div>
     </div>
@@ -13,7 +13,7 @@
       <label [ngClass]="registerForm.VDT('username').error?'shake':''"
         style="text-align:start; color:white; font-weight: bold; font-size: medium;" for="email">Username</label>
       <div class="ui left icon input">
-        <input appTrackfocus formControlName="username" type="text" id="username" name="username"
+        <input appFocusPulse formControlName="username" type="text" id="username" name="username"
           placeholder="Votre nom d'utilisateur...">
         <i class="user circle icon"></i>
       </div>
@@ -25,7 +25,7 @@
       <label [ngClass]="registerForm.VDT('password').error?'shake':''"
         style="text-align:start; color:white; font-weight: bold; font-size: medium;" for="email">Mot de passe</label>
       <div class="ui left icon input">
-        <input appTrackfocus formControlName="password" type="password" id="password" name="password"
+        <input appFocusPulse formControlName="password" type="password" id="password" name="password"
           placeholder="Votre mot de passe...">
         <i class="key icon"></i>
       </div>
@@ -36,7 +36,7 @@
         style="text-align:start; color:white; font-weight: bold; font-size: medium;" for="email">Numéro de
         téléphone</label>
       <div class="ui left icon input">
-        <input appTrackfocus formControlName="phone" type="text" id="phone" name="phone"
+        <input appFocusPulse formControlName="phone" type="text" id="phone" name="phone"
           placeholder="Votre numéro de téléphone...">
         <i class="phone icon"></i>
       </div>
