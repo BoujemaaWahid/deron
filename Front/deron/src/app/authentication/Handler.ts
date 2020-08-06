@@ -7,7 +7,7 @@ import {
 import {
   IDT
 } from '../../interfaces/IDT';
-import Notiflix from "notiflix";
+import Notiflix  from 'notiflix';
 declare var $: any;
 export class LoginForm extends IDT {
   public loginForm: FormGroup;
@@ -80,4 +80,10 @@ export class RegisterForm extends IDT {
       }
     })
   }
+}
+export function animeConfirmMail(): any{
+  Notiflix.Loading.Init({messageID: 'message_email_conf', messageMaxLength: 200, svgColor: '#428bca',messageFontSize: '20px'})
+  Notiflix.Loading.Dots('Un email vous sera envoyé pour la confirmation de votre adresse.');
+  $("#message_email_conf").css({'max-width':'65%'})
+  return Notiflix.Loading;
 }

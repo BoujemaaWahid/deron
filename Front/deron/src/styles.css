@@ -26,5 +26,6 @@
 		box-shadow: 0 0 0 0px #0041ff;
 	}
 }
+
 .shake{ animation: shaking 0.82s; }
 .pulsed{ animation: pulsed 1.5s infinite;}

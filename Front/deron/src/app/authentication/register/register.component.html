@@ -24,7 +24,8 @@
     <div class="field">
       <label [ngClass]="registerForm.VDT('password').error?'shake':''"
         style="text-align:start; color:white; font-weight: bold; font-size: medium;" for="email">Mot de passe</label>
-      <div class="ui left icon input">
+      <div data-variation="wide" data-tooltip="minimum cinque caractéres"
+           data-position="bottom center"class="ui left icon input">
         <input appFocusPulse formControlName="password" type="password" id="password" name="password"
           placeholder="Votre mot de passe...">
         <i class="key icon"></i>
@@ -42,10 +43,14 @@
       </div>
     </div>
   </div>
+
   <div class="field">
-    <button style="width:100%" [disabled]="registerForm.registerForm.invalid"
-      class="ui button primary">Inscrire</button>
-    <a (click)="toLogin()">Retourner vers la page de connxion</a>
+    <button 
+      [disabled]="registerForm.registerForm.invalid"
+      [ngClass]="['ui button primary', (isLoading?'loading':'')]"
+      (click)="createAccount()"
+      >Inscrire</button>
+    <a (click)="toLogin()" *ngIf="!isLoading">Retourner vers la page de connexion</a>
   </div>
 
 </form>
