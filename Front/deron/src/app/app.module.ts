@@ -11,6 +11,7 @@ import { DeacGuard } from './Guards/DeacGuard';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ValidationComponent } from './authentication/register/validation/validation.component';
 import { FocusPulseDirective } from './directives/focus-pulse.directive';
+import { Ng2IziToastModule } from 'ng2-izitoast';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { FocusPulseDirective } from './directives/focus-pulse.directive';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    Ng2IziToastModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule

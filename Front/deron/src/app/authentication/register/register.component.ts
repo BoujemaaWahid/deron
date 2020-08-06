@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { RegisterForm, animeConfirmMail } from '../Handler';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Deactivator } from '../../Guards/DeacGuard';
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -11,9 +10,11 @@ import { Deactivator } from '../../Guards/DeacGuard';
 export class RegisterComponent implements Deactivator {
   registerForm: RegisterForm;
   isLoading = false;
+  
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { 
     this.registerForm = new RegisterForm();
   }
+
   async confirm(): Promise<boolean> {
     return await this.registerForm.exitRegisterGuard()
   }
