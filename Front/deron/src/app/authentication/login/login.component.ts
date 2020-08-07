@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginForm } from '../Handler';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Deactivator } from '../../Guards/DeacGuard';
+import { Deactivator } from '../../Guards/Deactivation';
 
 @Component({
   selector: 'app-login',

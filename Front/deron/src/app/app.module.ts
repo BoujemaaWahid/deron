@@ -7,11 +7,14 @@ import { AppComponent } from './app.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
-import { DeacGuard } from './Guards/DeacGuard';
+import { DirtyFields } from './Guards/Deactivation';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ValidationComponent } from './authentication/register/validation/validation.component';
 import { FocusPulseDirective } from './directives/focus-pulse.directive';
 import { Ng2IziToastModule } from 'ng2-izitoast';
+import { QRCodeModule } from 'angularx-qrcode';
+import { ValidationGuard } from './Guards/Activation';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,11 +29,12 @@ import { Ng2IziToastModule } from 'ng2-izitoast';
     BrowserModule,
     BrowserAnimationsModule,
     Ng2IziToastModule,
+    QRCodeModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [DeacGuard],
+  providers: [DirtyFields, ValidationGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

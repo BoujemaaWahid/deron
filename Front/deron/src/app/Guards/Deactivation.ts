@@ -7,7 +7,7 @@ export interface Deactivator {
 @Injectable({
     providedIn: 'root'
 })
-export class DeacGuard implements CanDeactivate<Deactivator>{
+export class DirtyFields implements CanDeactivate<Deactivator>{
     canDeactivate(component: Deactivator,
         currentRoute: ActivatedRouteSnapshot,
         currentState: RouterStateSnapshot,

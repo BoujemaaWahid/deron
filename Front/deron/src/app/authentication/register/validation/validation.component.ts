@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-validation',
@@ -6,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./validation.component.css']
 })
 export class ValidationComponent implements OnInit {
+  signature: string|any;
+  constructor(private route: Router, private acRoute: ActivatedRoute) {
+   // try{
+      this.signature = atob(acRoute.snapshot.paramMap.get('signature'))
+      this.signature = JSON.parse(this.signature)
+   // }catch(e){ this.route.navigate(['404'])}
 
-  constructor() { }
-
+  }
+  
   ngOnInit(): void {
   }
 
