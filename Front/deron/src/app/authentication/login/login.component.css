@@ -3,7 +3,10 @@ form{width: auto; display: grid; contain: content;}
 label { cursor: pointer; }
 .ui.input .ng-touched.ng-invalid{ border: #d9534f solid; }
 .ui.input .ng-touched.ng-invalid.pulsed{border: 0ch;}
-a{cursor: pointer;}
+a{
+    cursor: pointer;
+    animation: pulse 0.8s infinite;
+}
 @media screen and (min-width: 701px){
     #login_form{width: 35%; padding-top: 2%; margin-top: -2%;}
 }
