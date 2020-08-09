@@ -14,6 +14,8 @@ import { FocusPulseDirective } from './directives/focus-pulse.directive';
 import { Ng2IziToastModule } from 'ng2-izitoast';
 import { QRCodeModule } from 'angularx-qrcode';
 import { ValidationGuard } from './Guards/Activation';
+import { IndexedDbService } from './services/indexed-db.service';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,7 @@ import { ValidationGuard } from './Guards/Activation';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [DirtyFields, ValidationGuard],
+  providers: [IndexedDbService, DirtyFields, ValidationGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

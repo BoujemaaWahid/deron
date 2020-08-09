@@ -9,10 +9,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ValidationComponent implements OnInit {
   signature: string|any;
   constructor(private route: Router, private acRoute: ActivatedRoute) {
-   // try{
+   try{
       this.signature = atob(acRoute.snapshot.paramMap.get('signature'))
       this.signature = JSON.parse(this.signature)
-   // }catch(e){ this.route.navigate(['404'])}
+   }catch(e){this.route.navigate(['404'])}
 
   }
   
