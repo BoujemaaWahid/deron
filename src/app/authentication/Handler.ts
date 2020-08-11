@@ -7,6 +7,7 @@ import {
 import {
   IDT
 } from '../../interfaces/IDT';
+import {Md5} from 'ts-md5/dist/md5';
 import Notiflix  from 'notiflix';
 declare var $: any;
 export class LoginForm extends IDT {
@@ -21,6 +22,12 @@ export class LoginForm extends IDT {
     })
     if( $("#identifiant").is(':focus') ){
       $("#identifiant").toggleClass('pulsed')
+    }
+  }
+  public getData(){
+    return {
+      "email": this.loginForm.value("email"),
+      "password": this.loginForm.value("password")
     }
   }
   public VDT(e) {
@@ -55,6 +62,16 @@ export class RegisterForm extends IDT {
       password: ['', [Validators.required, Validators.minLength(5)]],
       phone: ['', Validators.required]
     })
+  }
+  public getData(): any{
+    
+    return {
+      "email": this.registerForm.value("email"),
+      "username": this.registerForm.value("username"),
+      "password": Md5.hashStr( this.registerForm.value("password") ),
+      "phone": this.registerForm.value("phone"),
+    }
+
   }
   public VDT(e) {
     return this.IDT(this.registerForm, e)

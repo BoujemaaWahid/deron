@@ -15,6 +15,8 @@ import { Ng2IziToastModule } from 'ng2-izitoast';
 import { QRCodeModule } from 'angularx-qrcode';
 import { ValidationGuard } from './Guards/Activation';
 import { IndexedDbService } from './services/indexed-db.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 
 @NgModule({
@@ -34,9 +36,15 @@ import { IndexedDbService } from './services/indexed-db.service';
     QRCodeModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [IndexedDbService, DirtyFields, ValidationGuard],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true},
+    IndexedDbService,
+    DirtyFields,
+    ValidationGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
