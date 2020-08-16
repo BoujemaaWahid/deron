@@ -9,15 +9,14 @@ import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { DirtyFields } from './Guards/Deactivation';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { ValidationComponent } from './authentication/register/validation/validation.component';
 import { FocusPulseDirective } from './directives/focus-pulse.directive';
 import { Ng2IziToastModule } from 'ng2-izitoast';
 import { QRCodeModule } from 'angularx-qrcode';
-import { ValidationGuard } from './Guards/Activation';
 import { IndexedDbService } from './services/indexed-db.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './services/token-interceptor.service';
-
+import { ProfileComponent } from './profile/profile.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +25,9 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     LoginComponent,
     RegisterComponent,
     NotfoundComponent,
-    ValidationComponent,
-    FocusPulseDirective
+    FocusPulseDirective,
+    ProfileComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -42,8 +42,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true},
     IndexedDbService,
-    DirtyFields,
-    ValidationGuard
+    DirtyFields
   ],
   bootstrap: [AppComponent]
 })

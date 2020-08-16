@@ -13,7 +13,7 @@ export class AppComponent {
     $.get("https://ipinfo.io?token=83e376fb63ebde", function(response) {
       console.log(response);
     })
-    this.x1.test().subscribe(res=>console.log(res))
+    
 
     //this.x();
     /*this.deron.getInstance().then(res=>{

@@ -1,0 +1,55 @@
+@keyframes connection {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+  }
+
+  70% {
+    -moz-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+    box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+  }
+
+  100% {
+    -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+  }
+}
+@keyframes textHilight {
+    0%{
+        font-size: smaller;
+    }
+    50%{
+        font-size: small;
+    }
+    75%{
+        font-size: revert;
+    }
+    100%{
+        font-size: small;
+    }
+}
+.bullConnection {
+  z-index: 1;
+  background: #3ab53a;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  animation: connection 1.5s infinite;
+  transform: translateX(35px);
+  border-radius: 50%;
+}
+.nameuser{
+    color: white;
+    font-weight: bold;
+    margin-left: 2%;
+}
+
+.itemList:hover .nameuser{
+    font-size: medium;
+    color: #5bc0de;
+    animation: pulse 1.5s infinite;
+}
+.itemList {
+  margin: 2%;
+  cursor: pointer;
+}

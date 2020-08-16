@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { slider } from './route-animation';
-
 @Component({
   selector: 'app-authentication',
   templateUrl: './authentication.component.html',

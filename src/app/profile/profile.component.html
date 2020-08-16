@@ -1,0 +1,29 @@
+<div class="container fluid" id="CF">
+      <div class="ui equal width centered aligned grid" style="position: relative; margin-top: auto;">
+            <div class="row" style="max-height: 95vh;">
+                  <div class="four wide column" style="height:95%; overflow-y: scroll; overflow-x: hidden;">
+                        
+                        <ng-container *ngFor="let i of t">
+                              <div class="itemList row">
+                                    <div class="sixteen wide column">
+                                          <div>
+                                                <div class="bullConnection"></div> 
+
+                                                <img class="ui middle mini aligned circular image" style="width: 50px;" src="https://picsum.photos/200">
+                                                
+                                          <span class="nameuser">Middle Aligned</span>
+                                    </div>
+                                          </div>
+
+                                    </div>
+                        </ng-container>
+                  </div>
+                  <div class="red column" style="height:100%; overflow-y: scroll;">
+                        <ng-container *ngFor="let i of t">
+                              <p>{{i}}</p>
+                        </ng-container>
+                  </div>
+            </div>
+            <div style="height:10%; position: absolute;top: 100vh; transform:translateY(-100%)" class="row"><div class="blue column"></div></div>
+      </div>
+</div>
