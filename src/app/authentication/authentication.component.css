@@ -3,6 +3,6 @@
     text-align:  -moz-center;
     text-align: -ms-center;
 }
-@media screen and (min-width: 701px){
-    #logo{margin-top: 2%;}
+@media screen and (max-width: 1000px){
+    /*#item_block{text-align: center;}*/
 }

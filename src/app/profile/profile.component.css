@@ -14,20 +14,25 @@
     box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
   }
 }
+
 @keyframes textHilight {
-    0%{
-        font-size: smaller;
-    }
-    50%{
-        font-size: small;
-    }
-    75%{
-        font-size: revert;
-    }
-    100%{
-        font-size: small;
-    }
+  0% {
+    font-size: smaller;
+  }
+
+  50% {
+    font-size: small;
+  }
+
+  75% {
+    font-size: revert;
+  }
+
+  100% {
+    font-size: small;
+  }
 }
+
 .bullConnection {
   z-index: 1;
   background: #3ab53a;
@@ -38,18 +43,58 @@
   transform: translateX(35px);
   border-radius: 50%;
 }
-.nameuser{
-    color: white;
-    font-weight: bold;
-    margin-left: 2%;
+
+.nameuser {
+  color: white;
+  font-weight: bold;
+  margin-left: 2%;
+  display: contents;
 }
 
-.itemList:hover .nameuser{
-    font-size: medium;
-    color: #5bc0de;
-    animation: pulse 1.5s infinite;
+.etext {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100px;
+  display: block;
+  text-overflow: ellipsis;
 }
+.nmsg{
+  font-weight: bold;
+  color: #a8a8e4;
+  animation: pulse 2s infinite;
+}
+.msgContent{
+  background: darkslategray;
+  border-radius: 50px;
+  max-width: 50%;
+  margin-left: 1%;
+  word-break: break-all;
+}
+.messages{
+   height:81%; overflow-y: scroll;
+   margin-top:1%;
+  
+   
+   overflow-x: hidden;
+}
+.item_content {
+  display: -moz-inline-grid;
+  display: -ms-inline-grid;
+  display: inline-grid;
+  margin-left: 3%;
+}
+
+.itemList:hover .nameuser {
+  font-size: revert;
+  color: #5bc0de;
+}
+
 .itemList {
   margin: 2%;
+  margin-top: 3%;
   cursor: pointer;
+}
+
+@media screen and (max-width: 1032px){
+  #item_block{display: inline-table;}
 }

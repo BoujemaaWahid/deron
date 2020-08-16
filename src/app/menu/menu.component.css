@@ -1,0 +1,17 @@
+.inverted.menu{
+    background:#141a21;
+    height: 5%;
+    border-radius: 0px;
+}
+
+.left.menu{
+    width:12%;
+    height: auto;
+}
+.right.menu{
+    width:12%;
+    height: auto;
+}
+a{
+    border-radius: 0px;
+}
