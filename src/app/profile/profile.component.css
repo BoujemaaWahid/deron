@@ -58,25 +58,93 @@
   display: block;
   text-overflow: ellipsis;
 }
-.nmsg{
+
+.nmsg {
   font-weight: bold;
   color: #a8a8e4;
   animation: pulse 2s infinite;
 }
-.msgContent{
+
+.msgContent {
   background: darkslategray;
   border-radius: 50px;
   max-width: 50%;
   margin-left: 1%;
   word-break: break-all;
+  word-wrap: break-word;
 }
-.messages{
-   height:81%; overflow-y: scroll;
-   margin-top:1%;
+
+.messagesContainerForm {
+  width: 100%;
+}
+
+.inputMessageField {
+  float: right;
+  width: 50%;
+  height: 100%;
+}
+
+.inputMessageField>input {
+  font-weight: bold;
+  height: 90%;
+  border-radius: 20px;
+}
+
+
+.message_text_value::first-letter {
+  text-transform: uppercase;
+}
+
+.three.wide.column {
+  height: 92%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.uewcag {
+  position: relative;
+  margin-top: auto;
+  width: 100%;
+}
+
+#btmROW {
+  height: 10%;
+  position: absolute;
+  top: 88vh;
+  transform: translateY(-100%);
+}
+
+.message_text_value {
+  padding: 1%;
+  margin: 6%;
+  color: white;
+  font-weight: bold;
   
-   
-   overflow-x: hidden;
+  text-align: center;
+  cursor: pointer;
 }
+
+.userimage_1 {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+.nameuser_1 {
+  display: inline-flex;
+  font-size: large;
+  margin-right: 2%;
+}
+
+.messages {
+  height: 73%;
+  overflow-y: scroll;
+  margin-top: 1%;
+
+
+  overflow-x: hidden;
+}
+
 .item_content {
   display: -moz-inline-grid;
   display: -ms-inline-grid;
@@ -95,6 +163,8 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 1032px){
-  #item_block{display: inline-table;}
+@media screen and (max-width: 1032px) {
+  #item_block {
+    display: inline-table;
+  }
 }

@@ -1,8 +1,8 @@
 <div class="container fluid" id="CF">
   <app-menu></app-menu>
-  <div class="ui equal width centered aligned grid" style="position: relative; margin-top: auto; width: 100%">
+  <div class="ui equal width centered aligned grid uewcag">
     <div class="row" style="max-height: 95vh;">
-      <div class="three wide column" style="height:92%; overflow-y: scroll; overflow-x: hidden;">
+      <div class="three wide column">
 
         <ng-container *ngFor="let i of t">
           <div class="itemList row">
@@ -21,29 +21,29 @@
         </ng-container>
       </div>
       <div class="ten wide column" style="height:100%">
-
         <div class="row">
           <div class="column">
-            <img class="ui middle aligned mini circular image" style="width:75px;height:75px;border-radius: 50%;" src="https://scontent-cdg2-1.cdninstafgram.com/v/t51.2885-15/e35/107118697_286492019462675_5363744277865594370_n.jpg?_nc_ht=scontent-cdg2-1.cdninstagram.com&_nc_cat=111&_nc_ohc=kwW-7aqWy70AX_DJyQ3&oh=d7faf769f16d89b7fbd92f1ef58c10e1&oe=5F620045">
-            <span class="nameuser" style="display:inline-flex;font-size: large;margin-right: 2%">Boujemaa wahid</span>
+            <img class="ui middle aligned userimage_1 circular image"
+              src="https://scontent-cdg2-1.cdninstagram..com/v/t51.2885-15/e35/107118697_286492019462675_5363744277865594370_n.jpg?_nc_ht=scontent-cdg2-1.cdninstagram.com&_nc_cat=111&_nc_ohc=kwW-7aqWy70AX_DJyQ3&oh=d7faf769f16d89b7fbd92f1ef58c10e1&oe=5F620045">
+            <span class="nameuser nameuser_1">Boujemaa wahid</span>
           </div>
         </div>
         <div class="ui grid messages">
 
-          <ng-container *ngFor="let i of t">
-            <div class="row" style="margin-bottom: -8%;">
-              <div class="column" >
-              <div class="msgContent">
-                <p style="padding: 1%; margin:6%; color: white; font-weight: bold;">{{i}} hello </p>
+          <div class="ui form messagesContainerForm">
+            <ng-container *ngFor="let i of messages">
+              <div class="field" style="width: 100%">
+                <div class="msgContent" [ngStyle]="{'width': i.width}">
+                  <p class="message_text_value">{{i.msg}}</p>
                 </div>
-                
               </div>
-            </div>
-          </ng-container>
-          <div style="height:10%; position: absolute;top: 90.5vh; transform:translateY(-100%)" class="row">
+
+            </ng-container>
+          </div>
+          <div id="btmROW" class="row">
             <div class="column">
-              <div class="ui input icon" style="width:50%;height: 100%;">
-                <input style="height:90%; border-radius: 20px;" placeholder="Message..." type="text">
+              <div class="ui input icon inputMessageField">
+                <input placeholder="Message..." type="text">
                 <i class="comment alternate outline icon"></i>
               </div>
             </div>
@@ -60,9 +60,5 @@
         </ng-container>
       </div>
     </div>
-
   </div>
-  
 </div>
-
-
