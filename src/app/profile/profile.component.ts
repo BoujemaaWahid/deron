@@ -9,21 +9,21 @@ declare var $: any;
 export class ProfileComponent implements OnInit {
   t = []
   messages = [
-    { width:'', msg: "hello" },
-    { width:'', msg: "hello 123 456 789" },
-    { width:'', msg: "hello 789 456 123 789 456 123 789 456 132"},
-    { width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132"},
-    { width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"},
-    { width:'', msg: "hello" },
-    { width:'', msg: "hello 123 456 789" },
-    { width:'', msg: "hello 789 456 123 789 456 123 789 456 132"},
-    { width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132"},
-    { width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"}
+    { cl:'msg_self', width:'', msg: "hello" },
+    { cl:'msg_self',width:'', msg: "hello 123 456 789" },
+    { cl:'msg_friend',width:'', msg: "hello 789 456 123 789 456 123 789 456 132"},
+    { cl:'msg_self',width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132"},
+    {cl:'msg_friend', width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"},
+    { cl:'msg_self',width:'', msg: "hello" },
+    { cl:'msg_friend',width:'', msg: "hello 123 456 789" },
+    { cl:'msg_self',width:'', msg: "hello 789 456 123 789 456 123 789 456 132"},
+    { cl:'msg_friend',width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132"},
+    { cl:'msg_self',width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"}
   
   ]
   constructor() { 
     for(let j = 0; j< this.messages.length; j++){
-      this.messages[j].width= (this.messages[j].msg.length + 5) + '%' 
+      this.messages[j].width= (this.messages[j].msg.length + 3) + '%' 
     }    
     for (let i = 0; i < 100; i++){ this.t.push(i) }
   }
