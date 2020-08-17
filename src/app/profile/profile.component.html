@@ -3,33 +3,31 @@
   <div class="ui equal width centered aligned grid uewcag">
     <div class="row" style="max-height: 95vh;">
       <div class="three wide column">
-
         <ng-container *ngFor="let i of t">
           <div class="itemList row">
-            <div class="sixteen wide column">
+            <div class="sixteen wide column" >
               <div id="item_block">
-                <div class="bullConnection"></div>
+                <div class="bullOnline"></div>
                 <img class="ui middle aligned mini circular image" style="width: 50px;" src="https://picsum.photos/200">
-                <div class="item_content">
+                <div class="item_content" >
                   <span class="nameuser etext">Middle Aligned</span>
                   <p class="etext nmsg">{{i}}OaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaK</p>
                 </div>
+                <div class="ui divider"></div>
               </div>
             </div>
-
           </div>
         </ng-container>
       </div>
-      <div class="ten wide column" style="height:100%">
-        <div class="row">
-          <div class="column">
-            <img class="ui middle aligned userimage_1 circular image"
-              src="https://0scontent-cdg2-1.cdninstagram.com/v/t51.2885-15/e35/107118697_286492019462675_5363744277865594370_n.jpg?_nc_ht=scontent-cdg2-1.cdninstagram.com&_nc_cat=111&_nc_ohc=kwW-7aqWy70AX_DJyQ3&oh=d7faf769f16d89b7fbd92f1ef58c10e1&oe=5F620045">
+      <div class="ten wide column" style="height:100%;">
+        <div class="row" style="display: flow-root;">
+          <div class="column" style="width: 95%;">
+            <img class="ui middle aligned userimage_1 circular image" src="{{wahid}}" />
             <span class="nameuser nameuser_1">Boujemaa wahid</span>
+            <div class="ui divider"></div>
           </div>
         </div>
         <div class="ui grid messages">
-
           <div class="ui form messagesContainerForm">
             <ng-container *ngFor="let i of messages">
               <div class="field" style="width: 100%">
@@ -37,27 +35,31 @@
                   <p class="message_text_value">{{i.msg}}</p>
                 </div>
               </div>
-
             </ng-container>
           </div>
           <div id="btmROW" class="row">
-            <div class="column">
+            <div class="column" style="display:inherit">
+              <fa-icon [icon]="icons.faVideo" class="faicon fas fa-2x"></fa-icon>
+              <fa-icon [icon]="icons.faPhone" class="faicon fas fa-2x"></fa-icon>
+              <fa-icon [icon]="icons.faMicrophone" class="faicon fas fa-2x"></fa-icon>
+              <fa-icon [icon]="icons.faImage" class="faicon fas fa-2x"></fa-icon>
+              <fa-icon [icon]="icons.faFile" class="faicon fas fa-2x"></fa-icon>
               <div class="ui input icon inputMessageField">
                 <input placeholder="Message..." type="text">
                 <i class="comment alternate outline icon"></i>
               </div>
             </div>
           </div>
-
         </div>
-
-
       </div>
-      <div class="olive column" style="height:100%; overflow-y: scroll;">
-        <b>CONTENT 2</b>
-        <ng-container *ngFor="let i of t">
-          <p>{{i}}</p>
-        </ng-container>
+      <div class="column" style="overflow-y: scroll; overflow-x: hidden;">
+        <div class="ui form">
+          <div class="field" style="text-align: center;">
+            <img src="{{wahid}}" class="description_image">
+            <span class="nameuser nameuser_1">Boujemaa wahid</span>
+            <div class="ui divider"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

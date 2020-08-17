@@ -15,31 +15,30 @@
   }
 }
 
-@keyframes textHilight {
-  0% {
-    font-size: smaller;
-  }
-
-  50% {
-    font-size: small;
-  }
-
-  75% {
-    font-size: revert;
-  }
-
-  100% {
-    font-size: small;
-  }
+.description_image {
+  margin-left: 0%;
+  width: 160px;
+  height: 160px;
+  border-radius: 75px;
 }
 
-.bullConnection {
+.bullOnline {
   z-index: 1;
   background: #3ab53a;
   position: absolute;
   width: 12px;
   height: 12px;
   animation: connection 1.5s infinite;
+  transform: translateX(35px);
+  border-radius: 50%;
+}
+
+.bullOffline {
+  z-index: 1;
+  background: #7d7e7d;
+  position: absolute;
+  width: 12px;
+  height: 12px;
   transform: translateX(35px);
   border-radius: 50%;
 }
@@ -66,12 +65,11 @@
 }
 
 .msgContent {
-  border-radius: 20px;
+  border-radius: 15px;
   max-width: 55%;
   margin-left: 1%;
   word-break: break-all;
   word-wrap: break-word;
-  
   margin-bottom: 1%;
 }
 
@@ -80,20 +78,36 @@
 }
 
 .inputMessageField {
-  float: right;
-  width: 50%;
+  width: 60%;
   height: 100%;
+}
+.itemList.active{
+  background: #031b30;
+}
+
+.faicon {
+  color: #0275d8;
+  margin-left: 2%;
+  margin-right: 2%;
+  cursor: pointer;
+}
+
+.faicon:hover {
+  color: #3ab53a;
 }
 
 .inputMessageField>input {
   font-weight: bold;
-  height: 90%;
+  height: 40px;
   border-radius: 20px;
 }
 
 .message_text_value::first-line {
   text-align: center;
+  text-align: -moz-center;
+  text-align: -webkit-center;
 }
+
 .message_text_value::first-letter {
   text-transform: uppercase;
 }
@@ -101,6 +115,7 @@
 .three.wide.column {
   height: 92%;
   overflow-y: scroll;
+  scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
@@ -115,6 +130,10 @@
   position: absolute;
   top: 88vh;
   transform: translateY(-100%);
+  
+  text-align: center;
+  text-align: -moz-center;
+  text-align: -webkit-center;
 }
 
 .message_text_value {
@@ -125,12 +144,15 @@
   font-weight: bold;
   cursor: pointer;
   display: flow-root;
+  text-align: -moz-center;
 }
-.msg_self{
+
+.msg_self {
   float: right;
-  background: #5bc0de;
+  background: #0275d8;
 }
-.msg_friend{
+
+.msg_friend {
   float: left;
   background: darkslategray;
 }
@@ -148,11 +170,9 @@
 }
 
 .messages {
-  height: 73%;
+  height: 70%;
   overflow-y: scroll;
-  margin-top: 1%;
-
-
+  margin-top: -1%;
   overflow-x: hidden;
 }
 
@@ -174,8 +194,19 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 1032px) {
+@media screen and (max-width: 1065px) {
   #item_block {
     display: inline-table;
+    text-align: center;
+    text-align: -moz-center;
+    text-align: -webkit-center;
+  }
+
+  .bullOnline {
+    transform: translateX(50px);
+  }
+
+  .bullOffline {
+    transform: translateX(50px);
   }
 }
