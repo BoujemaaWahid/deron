@@ -78,9 +78,27 @@
 }
 
 .inputMessageField {
-  width: 60%;
+  width: 15%;
   height: 100%;
 }
+@keyframes openBox{
+  0%{ width: 15%;}
+  100%{width: 60%;}
+}
+@keyframes closeBox{
+  0%{ width: 60%;}
+  100%{width: 15%;}
+}
+.openInputMsg{
+  animation: openBox 0.4s;
+  width: 60%;
+}
+.closeInputMsg{
+  animation: closeBox 0.4s;
+  width: 15%;
+}
+
+
 .itemList.active{
   background: #031b30;
 }
@@ -151,12 +169,21 @@
   float: right;
   background: #0275d8;
 }
-
+.msg_self:hover {
+  background: #0262b6;
+}
 .msg_friend {
   float: left;
   background: darkslategray;
 }
+.msg_friend:hover {
+  background: rgb(35, 59, 59);
+}
 
+.description_message{
+  background: none;
+  font-weight: bold;
+}
 .userimage_1 {
   width: 75px;
   height: 75px;

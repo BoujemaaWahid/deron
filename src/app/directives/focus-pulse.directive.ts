@@ -9,7 +9,6 @@ export class FocusPulseDirective {
   constructor() { }
   @HostListener('focus', ['$event']) onFocus(e){
     this.isFocused = true;
-    console.log(e)
   }
   @HostListener('blur', ['$event']) onBlur(e){
     this.isFocused = false;
