@@ -44,6 +44,8 @@ function addActiveListener() {
           'color': 'black'
         })
       })
+      
+    $(".dropdown").dropdown()
     })
   }())
   

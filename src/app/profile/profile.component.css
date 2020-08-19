@@ -157,6 +157,28 @@
   width: 100%;
 }
 
+@keyframes rotateInfSetting {
+  0% {
+    transform: rotate(0deg) translateY(0%);
+  }
+
+  50% {
+    transform: rotate(180deg) translateY(-40%);
+  }
+}
+
+#setting_rotate {
+  color: white;
+  float: right;
+  animation: rotateInfSetting 8s infinite;
+}
+
+#setting_rotate:hover {
+  color: #0275d8;
+  cursor: pointer;
+  animation: none;
+}
+
 #btmROW {
   height: 10%;
   position: absolute;

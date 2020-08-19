@@ -16,7 +16,7 @@
                 <div class="item_content">
                   <span class="nameuser etext">{{i.name}}</span>
                   <p class="etext nmsg">{{i.nmsg}}</p>
-                  
+
                 </div>
                 <div class="ui divider"></div>
               </div>
@@ -26,15 +26,60 @@
       </div>
 
       <div class="row ui input icon search_friend_input_">
-        <input placeholder="Trouver des contactes...." (keyup)="updateFriendsList($event)" appFocusPulse style="border-radius:25px;background:#0d0f10;color:white;font-weight:bold;">
+        <input placeholder="Trouver des contactes...." (keyup)="updateFriendsList($event)" appFocusPulse
+          style="border-radius:25px;background:#0d0f10;color:white;font-weight:bold;">
         <i class="user icon" style="color:white"></i>
       </div>
       <div class="ten wide column" style="height:100%;">
         <div class="row" style="display: flow-root;">
           <div class="column" style="width: 95%;">
             <img class="ui middle aligned userimage_1 circular image" src="{{wahid}}" />
-            <span class="nameuser nameuser_1">Boujemaa wahid</span>
+
+            <span class="nameuser nameuser_1">Boujemaa wahid
+            </span>
+
+            <div style="background:none" class="ui icon top left pointing dropdown">
+
+              <i class="wrench icon" id="setting_rotate"></i>
+              <div class="menu" style="z-index: 5;">
+                <div class="header">Display Density</div>
+                <div class="item">Comfortable</div>
+                <div class="item">Cozy</div>
+                <div class="item">Compact</div>
+                <div class="ui divider"></div>
+                <div class="item">Settings</div>
+                <div class="item">
+                  <i class="dropdown icon"></i>
+                  <span class="text">Upload Settings</span>
+                  <div class="menu">
+                    <div class="item">
+                      <i class="check icon"></i>
+                      Convert Uploaded Files to PDF
+                    </div>
+                    <div class="item">
+                      <i class="check icon"></i>
+                      Digitize Text from Uploaded Files
+                    </div>
+                  </div>
+                </div>
+                <div class="item">Manage Apps</div>
+                <div class="item">Keyboard Shortcuts</div>
+                <div class="item">Help</div>
+              </div>
+            </div>
+
+
+
+            <div class="ui input" [ngStyle]="{'float':'right', 'height':'25px','display':search_in_conversation}">
+              <input style="border-radius: 15px;">
+              <div class="ui label black">125</div>
+
+              <div class="ui label black"><i class="plus icon"></i></div>
+
+              <div class="ui label black">125</div>
+            </div>
             <div class="ui divider"></div>
+
           </div>
         </div>
         <div class="ui grid messages">
@@ -84,6 +129,11 @@
             <span class="nameuser nameuser_1">Boujemaa wahid</span>
             <div class="ui divider"></div>
           </div>
+
+          <div class="field button ui black" style="width:100%;">Supprimer la conversation</div>
+          <div class="field button ui black" style="width:100%;">Archiver la conversation</div>
+          <div class="field button ui black" style="width:100%">Fichiers partager</div>
+          <div (click)="rechercheDansLaConversation()" class="field button ui black">Chercher dans la conversation</div>
         </div>
       </div>
     </div>
