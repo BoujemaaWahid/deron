@@ -2,27 +2,33 @@
   <app-menu></app-menu>
   <div class="ui equal width centered aligned grid uewcag">
     <div class="row" style="max-height: 95vh;">
-      
-  
+
+
+
       <div class="three wide column">
-        <ng-container *ngFor="let i of t">
+
+        <ng-container *ngFor="let i of friends_list">
           <div class="itemList row">
             <div class="sixteen wide column">
-              <div id="item_block">
+              <div class="item_block">
                 <div class="bullOnline"></div>
-                <img class="ui middle aligned mini circular image" style="width: 50px;" src="https://picsum.photos/200">
+                <img class="ui middle aligned mini circular image" style="width: 50px;" src="{{i.image}}">
                 <div class="item_content">
-                  <span class="nameuser etext">Middle Aligned</span>
-                  <p class="etext nmsg">{{i}}OaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaK</p>
+                  <span class="nameuser etext">{{i.name}}</span>
+                  <p class="etext nmsg">{{i.nmsg}}</p>
+                  
                 </div>
                 <div class="ui divider"></div>
               </div>
             </div>
           </div>
         </ng-container>
-        
       </div>
-      
+
+      <div class="row ui input icon search_friend_input_">
+        <input placeholder="Trouver des contactes...." (keyup)="updateFriendsList($event)" appFocusPulse style="border-radius:25px;background:#0d0f10;color:white;font-weight:bold;">
+        <i class="user icon" style="color:white"></i>
+      </div>
       <div class="ten wide column" style="height:100%;">
         <div class="row" style="display: flow-root;">
           <div class="column" style="width: 95%;">
@@ -35,56 +41,31 @@
           <div class="ui form messagesContainerForm">
             <ng-container *ngFor="let i of messages">
               <div class="field" style="width: 100%">
-                    <div 
-                    
-                    [attr.data-variation]="'inverted'"
-                    [attr.data-position]="i.self==true?'left center':'right center'"
-                    
-                    [attr.data-html]="i.title"
-                    [ngClass]="['popup', 'msgContent', i.self == true?'msg_self':'msg_friend']"
-                    [ngStyle]="{'width': i.width}">
-                      <p class="message_text_value">{{i.msg}}</p>
-                    </div>
-                  </div>
+                <div [attr.data-variation]="'inverted'" [attr.data-position]="i.self==true?'left center':'right center'"
+                  [attr.data-html]="i.title" [ngClass]="['popup', 'msgContent', i.self == true?'msg_self':'msg_friend']"
+                  [ngStyle]="{'width': i.width}">
+                  <p class="message_text_value">{{i.msg}}</p>
+                </div>
+              </div>
             </ng-container>
           </div>
           <div id="btmROW" class="row">
             <div class="column" style="display:inherit">
-              <fa-icon 
-              [attr.data-inverted]="''"
-              [attr.data-position]="'top center'"
-              [attr.data-tooltip]="'Appelez en video'"
-               [icon]="icons.faVideo"
-               class="popup faicon fas fa-2x">
+              <fa-icon [attr.data-inverted]="''" [attr.data-position]="'top center'"
+                [attr.data-tooltip]="'Appelez en video'" [icon]="icons.faVideo" class="popup faicon fas fa-2x">
               </fa-icon>
-              <fa-icon 
-              [attr.data-inverted]="''"
-              [attr.data-position]="'top center'"
-              [attr.data-tooltip]="'Appelez en audio'"
-              [icon]="icons.faPhone"
-              class="popup faicon fas fa-2x">
+              <fa-icon [attr.data-inverted]="''" [attr.data-position]="'top center'"
+                [attr.data-tooltip]="'Appelez en audio'" [icon]="icons.faPhone" class="popup faicon fas fa-2x">
               </fa-icon>
-              <fa-icon 
-              [attr.data-inverted]="''"
-              [attr.data-position]="'top center'"
-              [attr.data-tooltip]="'Message vocale'"
-              [icon]="icons.faMicrophone" 
-              class="popup faicon fas fa-2x">
+              <fa-icon [attr.data-inverted]="''" [attr.data-position]="'top center'"
+                [attr.data-tooltip]="'Message vocale'" [icon]="icons.faMicrophone" class="popup faicon fas fa-2x">
               </fa-icon>
 
-              <fa-icon 
-              [attr.data-inverted]="''"
-              [attr.data-position]="'top center'"
-              [attr.data-tooltip]="'Envoyé des images'"
-              [icon]="icons.faImage"
-              class="popup faicon fas fa-2x">
+              <fa-icon [attr.data-inverted]="''" [attr.data-position]="'top center'"
+                [attr.data-tooltip]="'Envoyé des images'" [icon]="icons.faImage" class="popup faicon fas fa-2x">
               </fa-icon>
-              <fa-icon 
-              [attr.data-inverted]="''"
-              [attr.data-position]="'top center'"
-              [attr.data-tooltip]="'Envoyé des fichiers'"
-              [icon]="icons.faFile"
-              class="popup faicon fas fa-2x">
+              <fa-icon [attr.data-inverted]="''" [attr.data-position]="'top center'"
+                [attr.data-tooltip]="'Envoyé des fichiers'" [icon]="icons.faFile" class="popup faicon fas fa-2x">
               </fa-icon>
 
               <div class="ui input icon inputMessageField">

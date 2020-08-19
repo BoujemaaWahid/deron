@@ -81,25 +81,39 @@
   width: 15%;
   height: 100%;
 }
-@keyframes openBox{
-  0%{ width: 15%;}
-  100%{width: 60%;}
+
+@keyframes openBox {
+  0% {
+    width: 15%;
+  }
+
+  100% {
+    width: 60%;
+  }
 }
-@keyframes closeBox{
-  0%{ width: 60%;}
-  100%{width: 15%;}
+
+@keyframes closeBox {
+  0% {
+    width: 60%;
+  }
+
+  100% {
+    width: 15%;
+  }
 }
-.openInputMsg{
+
+.openInputMsg {
   animation: openBox 0.4s;
   width: 60%;
 }
-.closeInputMsg{
+
+.closeInputMsg {
   animation: closeBox 0.4s;
   width: 15%;
 }
 
 
-.itemList.active{
+.itemList.active {
   background: #031b30;
 }
 
@@ -131,7 +145,7 @@
 }
 
 .three.wide.column {
-  height: 92%;
+  height: 90%;
   overflow-y: scroll;
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -147,8 +161,8 @@
   height: 10%;
   position: absolute;
   top: 88vh;
-  transform: translateY(-100%);
-  
+  transform: translateY(-8vh);
+
   text-align: center;
   text-align: -moz-center;
   text-align: -webkit-center;
@@ -169,21 +183,25 @@
   float: right;
   background: #0275d8;
 }
+
 .msg_self:hover {
   background: #0262b6;
 }
+
 .msg_friend {
   float: left;
   background: darkslategray;
 }
+
 .msg_friend:hover {
   background: rgb(35, 59, 59);
 }
 
-.description_message{
+.description_message {
   background: none;
   font-weight: bold;
 }
+
 .userimage_1 {
   width: 75px;
   height: 75px;
@@ -221,8 +239,16 @@
   cursor: pointer;
 }
 
+.search_friend_input_ {
+  width: 15%;
+  height: 23px;
+  position: absolute;
+  left: 2%;
+  transform: translate(0.5vh, 83.5vh);
+}
+
 @media screen and (max-width: 1065px) {
-  #item_block {
+  .item_block {
     display: inline-table;
     text-align: center;
     text-align: -moz-center;
