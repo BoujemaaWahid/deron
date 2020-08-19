@@ -166,7 +166,17 @@
     transform: rotate(180deg) translateY(-40%);
   }
 }
-
+.next_icon_search_conv:hover{
+  background: #292b2c !important;
+  cursor: pointer;
+}
+.prec_icon_search_conv:hover{
+  background: #292b2c !important;
+  cursor: pointer;
+}
+.highlightElement{
+  background: #8b6083;
+}
 #setting_rotate {
   color: white;
   float: right;

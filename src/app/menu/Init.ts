@@ -6,6 +6,7 @@ export class Init{
 }
 function addActiveListener() {
     let a = document.getElementsByClassName("menu_item")
+    
     for(let item = 0; item < a.length; item++){
         a[item].addEventListener('click', ()=>{
             for(let item2 = 0; item2 < a.length; item2++){
@@ -46,6 +47,7 @@ function addActiveListener() {
       })
       
     $(".dropdown").dropdown()
+    
     })
   }())
   

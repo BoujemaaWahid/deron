@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Icons } from './Icons';
 import { Friends } from './Friends';
+import { MessagesTrait } from './MessageTrait';
 declare var $: any;
 @Component({
   selector: 'app-profile',
@@ -9,8 +10,8 @@ declare var $: any;
 })
 export class ProfileComponent implements OnInit, AfterViewInit {
   friends_list = new Array<Friends>();
+  messageTrait = new MessagesTrait();
   friends = new Array<Friends>();
-  search_in_conversation = 'none';
   icons = new Icons();
   wahid = "https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/11880505_389864781223543_6418437934454991901_n.jpg?_nc_cat=107&_nc_sid=85a577&_nc_ohc=Ot20xwa3DXgAX9H6vPF&_nc_ht=scontent-cdg2-1.xx&oh=1edc6c96c07dc0ac819c1549705e4bec&oe=5F61EE7B"
   nada = "https://scontent-cdg2-1.cdninstagram.com/v/t51.2885-15/e35/107118697_286492019462675_5363744277865594370_n.jpg?_nc_ht=scontent-cdg2-1.cdninstagram.com&_nc_cat=111&_nc_ohc=kwW-7aqWy70AX_DJyQ3&oh=d7faf769f16d89b7fbd92f1ef58c10e1&oe=5F620045"
@@ -20,10 +21,10 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   ons = "https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/116437000_3065708190173771_2535649002713262243_n.jpg?_nc_cat=105&_nc_sid=85a577&_nc_ohc=9RC0rikNsgIAX8uE--z&_nc_ht=scontent-cdt1-1.xx&oh=0342293efd54e0bbb902e206152b2a4e&oe=5F63A5F8"
   hatem = "https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/115558513_2330344623926573_4749040569317583572_n.jpg?_nc_cat=107&_nc_sid=85a577&_nc_ohc=GMuq6UrhveYAX-o7Njh&_nc_ht=scontent-cdg2-1.xx&oh=251804ed4a80c42bf493faa347c70861&oe=5F61063C"
   messages = [
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:true, width:'', msg: "hello" },
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:true,width:'', msg: "hello 123 456 789" },
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:true,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132"},
+    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:true, width:'', msg: "1" },
+    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:true,width:'', msg: "2" },
+    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "3"},
+    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:true,width:'', msg: "4"},
     { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:true, width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"},
     { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:true,width:'', msg: "hello" },
     { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:true,width:'', msg: "hello 123 456 789" },
@@ -39,14 +40,31 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 123 456 789" },
     { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132"},
     { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132"},
+    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>", self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"},
+    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>", self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"},
+    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:true,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132"},
+    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"},
+    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false, width:'', msg: "hello" },
+    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 123 456 789" },
+    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132"},
+    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132"},
+    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false, width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"},
+    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello" },
+    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 123 456 789" },
+    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132"},
+    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132"},
+    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>", self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"},
     { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>", self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"}
   
   ]
   constructor() { 
     
     for(let j = 0; j< this.messages.length; j++){
+      this.messages[j].msg = ""+j;
       this.messages[j].width= (this.messages[j].msg.length + 3) + '%' 
     }
+    this.messages[this.messages.length - 1].msg = '2'
+    
     this.friends_list.push( {id:1, name:'Boujemaa Wahid', image:this.wahid, nmsg:'Hello'} );
     
     this.friends_list.push( {id:1, name:'Yassine Nada', image:this.nada, nmsg:'Hello'} );
@@ -78,9 +96,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       let value = event.target.value.toUpperCase();
       if( name.includes( value ))return item;
     })
-  }
-  rechercheDansLaConversation(){
-    this.search_in_conversation = this.search_in_conversation == 'none' ?'inline-flex':'none'
   }
 
 }
