@@ -2,6 +2,8 @@
   <app-menu></app-menu>
   <div class="ui equal width centered aligned grid uewcag">
     <div class="row" style="max-height: 95vh;">
+      
+  
       <div class="three wide column">
         <ng-container *ngFor="let i of t">
           <div class="itemList row">
@@ -18,7 +20,9 @@
             </div>
           </div>
         </ng-container>
+        
       </div>
+      
       <div class="ten wide column" style="height:100%;">
         <div class="row" style="display: flow-root;">
           <div class="column" style="width: 95%;">
@@ -84,7 +88,7 @@
               </fa-icon>
 
               <div class="ui input icon inputMessageField">
-                <input id="msgInput" placeholder="Message..." type="text">
+                <input appFocusPulse id="msgInput" placeholder="Message..." type="text">
                 <i class="comment alternate outline icon"></i>
               </div>
             </div>

@@ -1,4 +1,7 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { People } from './People';
+import { Init } from './Init';
+declare var $:any;
 
 @Component({
   selector: 'app-menu',
@@ -6,19 +9,12 @@ import { Component, OnInit, HostListener } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-    addActiveListener()
+  people = new People()
+  constructor() { 
+    
   }
-}
-function addActiveListener(){
-  let a = document.querySelectorAll("a")
-    a.forEach(item=>{
-      item.addEventListener('click', ()=>{
-        a.forEach( item_=> item_.classList.remove('active') )
-        item.classList.add('active')
-      })
-    })
+  ngOnInit(): void {
+    Init.init()
+    $('#search_find_people').search({source: this.people.content, showNoResults: false})
+  }
 }
