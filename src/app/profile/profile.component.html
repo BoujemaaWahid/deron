@@ -71,7 +71,9 @@
 
 
             <div class="ui input" [ngStyle]="{'float':'right', 'height':'25px','display':messageTrait.active_search}">
-              <input appFocusPulse (keyup)="messageTrait.searchInMsgs($event)" style="border-radius: 15px;">
+
+              <input appFocusPulse (keyup)="messageTrait.searchInMsgs($event)"
+                style="border-radius: 15px;height: 10px;">
               <div class="ui label black">{{messageTrait.count}}</div>
 
               <div (click)="messageTrait.scroll(0)" class="ui label large circular blue prec_icon_search_conv">
@@ -81,22 +83,35 @@
               <div (click)="messageTrait.scroll(1)" class="ui label large circular blue next_icon_search_conv">
                 <i style="margin-left:25%" class="chevron down icon"></i>
               </div>
+
             </div>
             <div class="ui divider"></div>
 
           </div>
         </div>
         <div class="ui grid messages">
-          <div id="messagesContainer__" class="ui form messagesContainerForm">
+          <div #MESSAGES_CONTAINER id="messagesContainer__" class="ui form messagesContainerForm">
             <ng-container *ngFor="let i of messages">
               <div class="field" style="width: 100%">
                 <div [attr.data-variation]="'inverted'" [attr.data-position]="i.self==true?'left center':'right center'"
-                  [attr.data-html]="i.title" [ngClass]="['popup', 'msgContent', i.self == true?'msg_self':'msg_friend']"
-                  [ngStyle]="{'width': i.width}">
-                  <p class="message_text_value">{{i.msg}}</p>
+                  [attr.data-html]="i.getTitle()"
+                  [ngClass]="['msgPopup', 'msgContent', i.self == true?'msg_self':'msg_friend']"
+                  [ngStyle]="{'width': i.getWidth()}">
+                  <p class="message_text_value">{{i.value}}</p>
                 </div>
               </div>
             </ng-container>
+            <div class="field" style="width: 100%">
+              <div [ngClass]="['msgContent', 'msg_friend_writing']">
+                <div id="isWriting__">
+                  <div class="ui mini teal empty circular label"></div>
+
+                  <div class="ui mini blue empty circular label"></div>
+
+                  <div class="ui mini teal empty circular label"></div>
+                </div>
+              </div>
+            </div>
           </div>
           <div id="btmROW" class="row">
             <div class="column" style="display:inherit">
@@ -118,7 +133,8 @@
               </fa-icon>
 
               <div class="ui input icon inputMessageField">
-                <input appFocusPulse id="msgInput" placeholder="Message..." type="text">
+                <input (keypress)="sendMessage($event)" appFocusPulse id="msgInput" placeholder="Message..."
+                  type="text">
                 <i class="comment alternate outline icon"></i>
               </div>
             </div>
@@ -137,7 +153,8 @@
           <div class="field button ui black" style="width:100%;">Supprimer la conversation</div>
           <div class="field button ui black" style="width:100%;">Archiver la conversation</div>
           <div class="field button ui black" style="width:100%">Fichiers partager</div>
-          <div (click)="messageTrait.activeSearchInConv()" class="field button ui black">Chercher dans la conversation</div>
+          <div (click)="messageTrait.activeSearchInConv()" class="field button ui black">Chercher dans la conversation
+          </div>
         </div>
       </div>
     </div>

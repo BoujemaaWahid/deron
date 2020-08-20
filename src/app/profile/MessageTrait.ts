@@ -1,3 +1,5 @@
+import { Renderer2 } from '@angular/core';
+declare var $: any;
 export class MessagesTrait {
   public count = 0;
   private max_count = 0;
@@ -5,9 +7,13 @@ export class MessagesTrait {
   private listOfMsgs = new Array < Element > ();
   public searchInMsgs(event) {
     this.count = 0;
-    this.listOfMsgs.forEach(e => e.classList.remove('pulsed'))
+    this.listOfMsgs.forEach(e => {
+      e.classList.remove('pulsed')
+      e.classList.remove('highlightElement')
+    })
     this.listOfMsgs = new Array < Element > ();
     if (event.target.value == '') return;
+    
     let ctn = document.getElementById('messagesContainer__')
     let searc_attr = event.target.value.toUpperCase()
     let childrens = ctn.children
@@ -43,7 +49,55 @@ export class MessagesTrait {
       behavior: 'smooth',
       block: 'end'
     })
+  }
+}
 
 
+export class Message {
+  public id: number;
+  public from: number;
+  public send: string;
+  public seen: string;
+  public self: boolean;
+  public type: 1|2|3|4|5;
+  public value: any;
+  private count_msg_sended = 0;
+  constructor(self:boolean, value:any, send?:string, seen?:string, id?:number, from?:number, type?:1|2|3|4|5){
+    this.id = id;
+    this.from = from;
+    this.send = send;
+    this.seen = seen;
+    this.self = self;
+    this.type = type;
+    this.value = value;
+  }
+  public getTitle(): string{
+      return `<div><b>Vu à ${this.seen}</b><br><b>Envoyé ${this.send}</b></div>`;
+  }
+  public getWidth(){
+    if( typeof( this.value ) == 'string' )
+      return (this.value.length + 5 ) + '%';
+  }
+
+  public createTextMsg(rendrer: Renderer2): any{
+    let field = rendrer.createElement('div');
+    let mcontent = rendrer.createElement('div')
+    let parag = rendrer.createElement('p')
+    rendrer.addClass(field, 'field')
+    rendrer.addClass(field, 'new_msg_sended')
+    rendrer.setStyle(field, 'width', '100%')
+    rendrer.setAttribute(mcontent, 'data-variation', 'inverted')
+    rendrer.setAttribute(mcontent, 'data-position', 'left center')
+    rendrer.setAttribute(mcontent, 'data-html', '<p>pl</p>')
+    rendrer.setStyle(mcontent, 'width', this.getWidth())
+    rendrer.addClass(mcontent, 'msgPopup')
+    rendrer.addClass(mcontent, 'msgContent')
+    rendrer.addClass(mcontent, 'msg_self')
+    rendrer.addClass(parag, 'message_text_value')
+    rendrer.appendChild(parag, rendrer.createText( this.value ) )
+    rendrer.appendChild(mcontent, parag)
+    rendrer.appendChild(field, mcontent)
+    console.log(field)
+    return field;
   }
 }

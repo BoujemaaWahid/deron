@@ -1,14 +1,18 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { Icons } from './Icons';
 import { Friends } from './Friends';
-import { MessagesTrait } from './MessageTrait';
+import { MessagesTrait, Message } from './MessageTrait';
 declare var $: any;
+import * as moment from 'moment';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit, AfterViewInit {
+  @ViewChild('MESSAGES_CONTAINER',{static: true}) MESSAGES_CONTAINER: ElementRef;
+  sendMsgSound = new Audio('assets/intuition.mp3')
+  writingSound = new Audio('assets/wind-up-3.mp3')
   friends_list = new Array<Friends>();
   messageTrait = new MessagesTrait();
   friends = new Array<Friends>();
@@ -20,56 +24,26 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   mariem = "https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/p960x960/79951928_2520578464856756_1341550360803672064_o.jpg?_nc_cat=104&_nc_sid=85a577&_nc_ohc=Aue7k8CT2BYAX-35HPY&_nc_ht=scontent-cdg2-1.xx&_nc_tp=6&oh=2543c805d1a17ef6a180182d88610f2e&oe=5F6267EC"
   ons = "https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/116437000_3065708190173771_2535649002713262243_n.jpg?_nc_cat=105&_nc_sid=85a577&_nc_ohc=9RC0rikNsgIAX8uE--z&_nc_ht=scontent-cdt1-1.xx&oh=0342293efd54e0bbb902e206152b2a4e&oe=5F63A5F8"
   hatem = "https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/115558513_2330344623926573_4749040569317583572_n.jpg?_nc_cat=107&_nc_sid=85a577&_nc_ohc=GMuq6UrhveYAX-o7Njh&_nc_ht=scontent-cdg2-1.xx&oh=251804ed4a80c42bf493faa347c70861&oe=5F61063C"
-  messages = [
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:true, width:'', msg: "1" },
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:true,width:'', msg: "2" },
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "3"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:true,width:'', msg: "4"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:true, width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:true,width:'', msg: "hello" },
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:true,width:'', msg: "hello 123 456 789" },
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:true,width:'', msg: "hello 789 456 123 789 456 123 789 456 132"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:true,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false, width:'', msg: "hello" },
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 123 456 789" },
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false, width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello" },
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 123 456 789" },
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>", self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>", self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:true,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false, width:'', msg: "hello" },
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 123 456 789" },
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false, width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello" },
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 123 456 789" },
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>",self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>", self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"},
-    { title:"<div><b>Vu à 14:45</b><br><b>Envoyé le 12 nouvembre 2001</b></div>", self:false,width:'', msg: "hello 789 456 123 789 456 123 789 456 132 789 456 123 789 456 123 789 456 132AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"}
+  wided = "https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/93702740_899199557195909_1066885759115460608_n.jpg?_nc_cat=110&_nc_sid=85a577&_nc_ohc=0IM7BjxofZIAX9b4D-G&_nc_ht=scontent-cdt1-1.xx&oh=f74178c6904babef7cbeef4b5d0f52c3&oe=5F6385E7"
   
-  ]
-  constructor() { 
+  messages = new Array<Message>();
+  constructor(private rendrer: Renderer2, el: ElementRef) {
+    let t = moment().format('dddd');  
+    console.log( t )
+    let m1 = new Message(true, 'wahid', '4 aout 2001', 'maintenant')
     
-    for(let j = 0; j< this.messages.length; j++){
-      this.messages[j].msg = ""+j;
-      this.messages[j].width= (this.messages[j].msg.length + 3) + '%' 
-    }
-    this.messages[this.messages.length - 1].msg = '2'
+    let m2 = new Message(false, 'zok omok l9a7ba', '4 aout 2001', 'maintenant')
+    this.messages.push(m1)
+    this.messages.push(m2)
     
     this.friends_list.push( {id:1, name:'Boujemaa Wahid', image:this.wahid, nmsg:'Hello'} );
     
-    this.friends_list.push( {id:1, name:'Yassine Nada', image:this.nada, nmsg:'Hello'} );
+    this.friends_list.push( {id:1, name:'Wided May', image:this.wided, nmsg:'Hello'} );
     
     this.friends_list.push( {id:1, name:'Mrad Semah', image:this.semah, nmsg:'Hello'} );
+
+    this.friends_list.push( {id:1, name:'Yassine Nada', image:this.nada, nmsg:'Hello'} );
+    
     
     this.friends_list.push( {id:1, name:'Dams Zied', image:this.zied, nmsg:'Hello'} );
     
@@ -81,9 +55,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     this.friends = [...this.friends_list]
   }
   ngAfterViewInit(): void {
-    let container = document.getElementsByClassName('messages')[0]
-    let fchild = container.firstElementChild
-    container.scrollBy({top:container.clientHeight * fchild.childElementCount})
+    scrollInSend()
   }
 
   ngOnInit(): void {
@@ -98,6 +70,20 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     })
   }
 
+  sendMessage(event){
+    
+    let value = event.target.value.trim()
+    if( event.key != 'Enter' || event.target.value == '' )return;
+    let msg = new Message(true, value)
+    let nmsg = msg.createTextMsg(this.rendrer)
+    this.rendrer.appendChild(this.MESSAGES_CONTAINER.nativeElement, nmsg)
+    event.target.value = ""
+    this.sendMsgSound.play()
+    reinit()
+    scrollInSend()
+    
+  }
+
 }
 
 
@@ -108,9 +94,30 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
 
 /*___________________________________________________JQUERY STYLE______________________________*/
+function reinit(){
+  $(".msgPopup").popup()
+  $(".new_msg_sended").transition({
+    animation : 'jiggle',
+    duration  : 800,
+    interval  : 200
+  })
+  document.getElementsByClassName('new_msg_sended')[0].classList.remove('new_msg_sended')
+}
+function scrollInSend(){
+  let container = document.getElementsByClassName('messages')[0]
+  let fchild = container.firstElementChild
+  container.scrollBy({top:container.clientHeight * fchild.childElementCount})
+}
 $(function(){
   $(document).ready(function(){
+    $("#isWriting__ .label").transition('set looping')
+    $("#isWriting__ .label").transition({
+        animation : 'jiggle',
+        duration  : 1500,
+        interval  : 100,
+    })
     $(".popup").popup()
+    $(".msgPopup").popup()
     $("#msgInput").focusin(function(){
       $(".inputMessageField").removeClass('closeInputMsg')
       $(".inputMessageField").addClass('openInputMsg')

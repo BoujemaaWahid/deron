@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { People } from './People';
 import { Init } from './Init';
+import { MenuService } from '../services/menu-services.service';
+import { duration } from 'moment';
 declare var $:any;
 
 @Component({
@@ -10,8 +12,14 @@ declare var $:any;
 })
 export class MenuComponent implements OnInit {
   people = new People()
-  constructor() { 
-    
+  info_sound = new Audio('assets/juntos.mp3')
+  msg_sound = new Audio('assets/me-too.mp3')
+  constructor(private service: MenuService) { 
+    this.service.notification.subscribe(res=>{
+      if( res == null )return;
+      Init.shakeInfoNotify()
+      Init.shakeMsgNotify()
+    })
   }
   ngOnInit(): void {
     Init.init()

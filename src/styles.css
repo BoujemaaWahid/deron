@@ -5,6 +5,7 @@ body{
 }
 @keyframes shaking {
     10%, 90% {
+      
       transform: translate3d(-1px, 0, 0);
     }
     20%, 80% {
@@ -16,6 +17,20 @@ body{
     40%, 60% {
       transform: translate3d(4px, 0, 0);
     }
+}
+@keyframes shaking2 {
+  10%, 90% {
+    transform: translate3d(-1px, 10px, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 10px, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 10px, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 10px, 0);
+  }
 }
 @keyframes pulsed {
 	0% {
@@ -34,4 +49,6 @@ body{
 }
 
 .shake{ animation: shaking 0.82s; }
+
+.shake_notify{ animation: shaking2 0.80s; }
 .pulsed{ animation: pulsed 1.5s infinite;}

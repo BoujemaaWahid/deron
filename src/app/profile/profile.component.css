@@ -224,6 +224,9 @@
   float: left;
   background: darkslategray;
 }
+.msg_friend_writing{
+  float: left;
+}
 
 .msg_friend:hover {
   background: rgb(35, 59, 59);
