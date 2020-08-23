@@ -3,8 +3,6 @@
   <div class="ui equal width centered aligned grid uewcag">
     <div class="row" style="max-height: 95vh;">
 
-
-
       <div class="three wide column">
 
         <ng-container *ngFor="let i of friends_list">
@@ -171,7 +169,7 @@
       </div>
     </div>
   </div>
-  
+
 </div>
 
 <div class="ui basic modal" id="msgVocalModal">
@@ -182,7 +180,7 @@
     <br>
     <p id="messageVocalModalDesc__">Cliquez sur le micro pour commencer ou recommencer.</p>
   </div>
-  
+
   <div class="actions" style="text-align: center;">
     <div class="ui cancel button inverted" style="width:35%;">
       Quitter
@@ -196,15 +194,15 @@
 
 <div class="ui basic modal" id="audioCallModal__">
   <div class="ui icon header">
+    <img id="friendImageAudioCall" src="{{wahid}}" class="ui medium circular image">
     <div id="audioCallEffect__">
       <fa-icon [icon]="icons.faPhone" class="fas fa-4x"></fa-icon>
     </div>
   </div>
-  
+
   <div class="actions" style="text-align: center;">
     <div class="ui cancel blue button inverted" style="width:40%;">
       Décrosher
     </div>
   </div>
 </div>
-

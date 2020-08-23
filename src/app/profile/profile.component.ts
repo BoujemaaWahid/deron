@@ -202,6 +202,7 @@ $(function () {
       onHide: function (e) {
         setTimeout(() => {
           let element = document.getElementById("messageVocalModal__")
+          element.setAttribute('working', 'false')
           element.classList.remove('vocalWorking')
           document.getElementById("messageVocalModalDesc__").style.opacity = "1";
         }, 1000)
