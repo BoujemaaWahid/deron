@@ -42,8 +42,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   mariem = "https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/p960x960/79951928_2520578464856756_1341550360803672064_o.jpg?_nc_cat=104&_nc_sid=85a577&_nc_ohc=Aue7k8CT2BYAX-35HPY&_nc_ht=scontent-cdg2-1.xx&_nc_tp=6&oh=2543c805d1a17ef6a180182d88610f2e&oe=5F6267EC"
   ons = "https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/116437000_3065708190173771_2535649002713262243_n.jpg?_nc_cat=105&_nc_sid=85a577&_nc_ohc=9RC0rikNsgIAX8uE--z&_nc_ht=scontent-cdt1-1.xx&oh=0342293efd54e0bbb902e206152b2a4e&oe=5F63A5F8"
   hatem = "https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/115558513_2330344623926573_4749040569317583572_n.jpg?_nc_cat=107&_nc_sid=85a577&_nc_ohc=GMuq6UrhveYAX-o7Njh&_nc_ht=scontent-cdg2-1.xx&oh=251804ed4a80c42bf493faa347c70861&oe=5F61063C"
-  wided = "https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/93702740_899199557195909_1066885759115460608_n.jpg?_nc_cat=110&_nc_sid=85a577&_nc_ohc=0IM7BjxofZIAX9b4D-G&_nc_ht=scontent-cdt1-1.xx&oh=f74178c6904babef7cbeef4b5d0f52c3&oe=5F6385E7"
-
+ 
   messages = new Array < Message > ();
   constructor(private rendrer: Renderer2, el: ElementRef) {
     let m1 = new Message(true, 'wahid', '4 aout 2001', 'maintenant')
@@ -59,12 +58,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       nmsg: 'Hello'
     });
 
-    this.friends_list.push({
-      id: 1,
-      name: 'Wided May',
-      image: this.wided,
-      nmsg: 'Hello'
-    });
+  
 
     this.friends_list.push({
       id: 1,
