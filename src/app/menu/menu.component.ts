@@ -12,8 +12,6 @@ declare var $:any;
 })
 export class MenuComponent implements OnInit {
   people = new People()
-  info_sound = new Audio('assets/juntos.mp3')
-  msg_sound = new Audio('assets/me-too.mp3')
   constructor(private service: MenuService) { 
     this.service.notification.subscribe(res=>{
       if( res == null )return;

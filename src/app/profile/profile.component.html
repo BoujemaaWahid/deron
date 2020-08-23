@@ -91,37 +91,49 @@
         </div>
         <div class="ui grid messages">
           <div #MESSAGES_CONTAINER id="messagesContainer__" class="ui form messagesContainerForm">
-            <ng-container *ngFor="let i of messages">
-              <div class="field" style="width: 100%">
+            <ng-container *ngFor="let i of messages; let last=last">
+
+              <div [ngClass]="['field']" style="width: 100%">
                 <div [attr.data-variation]="'inverted'" [attr.data-position]="i.self==true?'left center':'right center'"
                   [attr.data-html]="i.getTitle()"
-                  [ngClass]="['msgPopup', 'msgContent', i.self == true?'msg_self':'msg_friend']"
+                  [ngClass]="['msgPopup', i.newmsgcl,'msgContent', i.self == true?'msg_self':'msg_friend']"
                   [ngStyle]="{'width': i.getWidth()}">
                   <p class="message_text_value">{{i.value}}</p>
                 </div>
               </div>
+
             </ng-container>
+            <!--AUDIO
             <div class="field" style="width: 100%">
-              <div [ngClass]="['msgContent', 'msg_friend_writing']">
-                <div id="isWriting__">
-                  <div class="ui mini teal empty circular label"></div>
-
-                  <div class="ui mini blue empty circular label"></div>
-
-                  <div class="ui mini teal empty circular label"></div>
+              <div class="msg_self msgPopup msgContent"
+                [ngStyle]="{'width': '25%','text-align':'center','cursor':'pointer', 'background':'none'}">
+                <div style="display: flex;width:100%">
+                  <audio controls src="assets/audio.mp3" style="height:25px"></audio>
                 </div>
               </div>
             </div>
+            -->
+            <!-- IMAGES 
+            <div [ngClass]="['field']" style="width: 100%">
+              <div [attr.data-variation]="'inverted'" [attr.data-position]="'left center'"
+                [ngClass]="['msgPopup', '', 'msg_self']" style="background:none;">
+                <div style="width:65%;float:right">
+                  <img style="float:right;margin:0.5%;" class="ui small rounded image msg_content_img" src="{{wahid}}">
+                </div>
+              </div>    
+            </div>
+                  -->
+
           </div>
           <div id="btmROW" class="row">
             <div class="column" style="display:inherit">
               <fa-icon [attr.data-inverted]="''" [attr.data-position]="'top center'"
                 [attr.data-tooltip]="'Appelez en video'" [icon]="icons.faVideo" class="popup faicon fas fa-2x">
               </fa-icon>
-              <fa-icon [attr.data-inverted]="''" [attr.data-position]="'top center'"
+              <fa-icon (click)="callAudio()" [attr.data-inverted]="''" [attr.data-position]="'top center'"
                 [attr.data-tooltip]="'Appelez en audio'" [icon]="icons.faPhone" class="popup faicon fas fa-2x">
               </fa-icon>
-              <fa-icon [attr.data-inverted]="''" [attr.data-position]="'top center'"
+              <fa-icon (click)="showVocalModal()" [attr.data-inverted]="''" [attr.data-position]="'top center'"
                 [attr.data-tooltip]="'Message vocale'" [icon]="icons.faMicrophone" class="popup faicon fas fa-2x">
               </fa-icon>
 
@@ -159,4 +171,40 @@
       </div>
     </div>
   </div>
+  
 </div>
+
+<div class="ui basic modal" id="msgVocalModal">
+  <div class="ui icon header">
+    <div (click)="recordVocalMessage()" [attr.working]="false" id="messageVocalModal__">
+      <fa-icon [icon]="icons.faMicrophone" class="fas fa-4x"></fa-icon>
+    </div>
+    <br>
+    <p id="messageVocalModalDesc__">Cliquez sur le micro pour commencer ou recommencer.</p>
+  </div>
+  
+  <div class="actions" style="text-align: center;">
+    <div class="ui cancel button inverted" style="width:35%;">
+      Quitter
+    </div>
+    <div class="ui blue ok inverted button" style="width:35%;">
+      Envoyer
+    </div>
+  </div>
+</div>
+
+
+<div class="ui basic modal" id="audioCallModal__">
+  <div class="ui icon header">
+    <div id="audioCallEffect__">
+      <fa-icon [icon]="icons.faPhone" class="fas fa-4x"></fa-icon>
+    </div>
+  </div>
+  
+  <div class="actions" style="text-align: center;">
+    <div class="ui cancel blue button inverted" style="width:40%;">
+      Décrosher
+    </div>
+  </div>
+</div>
+

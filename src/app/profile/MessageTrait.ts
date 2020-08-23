@@ -62,6 +62,7 @@ export class Message {
   public type: 1|2|3|4|5;
   public value: any;
   private count_msg_sended = 0;
+  public newmsgcl = ''
   constructor(self:boolean, value:any, send?:string, seen?:string, id?:number, from?:number, type?:1|2|3|4|5){
     this.id = id;
     this.from = from;
@@ -99,5 +100,28 @@ export class Message {
     rendrer.appendChild(field, mcontent)
     console.log(field)
     return field;
+  }
+  public static getWritingEffect(rendrer: Renderer2){
+   let c1 = ['ui','mini','teal','empty','circular','label']
+   let c2 = ['ui','mini','blue','empty','circular','label']
+   let field = rendrer.createElement('div');
+   let container = rendrer.createElement('div');
+   let write = rendrer.createElement('div');
+   let l1 = rendrer.createElement('div');
+   let l2 = rendrer.createElement('div');
+   let l3 = rendrer.createElement('div');
+   rendrer.setStyle(field, 'width', '100%')
+   rendrer.setStyle(field, 'display', 'flex')
+   rendrer.addClass(container, 'msgContent')
+   rendrer.addClass(container, 'msg_friend_writing')
+   rendrer.setAttribute(write, 'id', 'isWriting__')
+   c1.forEach(e=> {rendrer.addClass(l1, e); rendrer.addClass(l3, e);})
+   c2.forEach(e=> rendrer.addClass(l2, e) )
+   rendrer.appendChild(write, l1)
+   rendrer.appendChild(write, l2)
+   rendrer.appendChild(write, l3)
+   rendrer.appendChild(container, write)
+   rendrer.appendChild(field, container)
+   return field;
   }
 }

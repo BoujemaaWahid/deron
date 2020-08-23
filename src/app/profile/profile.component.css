@@ -298,3 +298,59 @@
     transform: translateX(50px);
   }
 }
+.msg_content_img:hover{
+  filter: drop-shadow(1px 4px 6px black);
+  cursor: pointer;
+}
+#messageVocalModal__{
+  cursor:pointer;padding:5%;border-radius: 50%; background:#c73431;width:20%;margin-left:40%;
+}
+#messageVocalModal__:hover{
+  background:#b82624;
+}
+#audioCallEffect__{
+  cursor:pointer;padding:5%;border-radius: 50%; background:#7593f7;width:20%;margin-left:40%;
+  
+}
+.callAudioNow{
+  animation: audioCall 1s infinite;
+}
+@keyframes audioCall {
+  0%{
+    transform: scale(1);
+
+  }
+  50%{
+    transform: scale(1.1) rotate(5deg);
+    background:#4853e7;
+  }
+  75%{
+    transform: scale(1.1) rotate(10deg);
+    background:#4853e7;
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+@keyframes vocalWorking {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+    box-shadow: 0 0 0 5px #5cf0ab;
+    }
+
+  70% {
+    -moz-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+    box-shadow: 0 0 0 60px #2e65cc;
+  }
+
+  100% {
+    -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+    box-shadow: 0 0 0 5px #5cf0ab;
+    
+  }
+}
+
+.vocalWorking{
+  background: #22b886 !important;
+  animation: vocalWorking 1s infinite;
+}
