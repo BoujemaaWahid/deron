@@ -47,7 +47,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   constructor(private rendrer: Renderer2, el: ElementRef) {
     let m1 = new Message(true, 'wahid', '4 aout 2001', 'maintenant')
 
-    let m2 = new Message(false, 'zok omok l9a7ba', '4 aout 2001', 'maintenant')
+    let m2 = new Message(false, 'Hello', '4 aout 2001', 'maintenant') //#4ba1eb // timing msg //menu #b0bbc5 // nmsg #00b5ad
     this.messages.push(m1)
     this.messages.push(m2)
 
