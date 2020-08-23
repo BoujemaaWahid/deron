@@ -3,8 +3,8 @@
   <div class="ui equal width centered aligned grid uewcag">
     <div class="row" style="max-height: 95vh;">
 
-      <div class="three wide column">
-
+      <div class="three wide column" id="friendsColumn">
+        
         <ng-container *ngFor="let i of friends_list">
           <div class="itemList row">
             <div class="sixteen wide column">
@@ -23,12 +23,12 @@
         </ng-container>
       </div>
 
-      <div class="row ui input icon search_friend_input_">
+      <div class="row ui input icon search_friend_input_" id="sfi__">
         <input placeholder="Trouver des contactes...." (keyup)="updateFriendsList($event)" appFocusPulse
           style="border-radius:25px;background:#0d0f10;color:white;font-weight:bold;">
         <i class="user icon" style="color:white"></i>
       </div>
-      <div class="ten wide column" style="height:100%;">
+      <div id="friendMessagesArea" class="ten wide column" style="height:100%;">
         <div class="row" style="display: flow-root;">
           <div class="column" style="width: 95%;">
             <img class="ui middle aligned userimage_1 circular image" src="{{wahid}}" />
@@ -126,20 +126,20 @@
           <div id="btmROW" class="row">
             <div class="column" style="display:inherit">
               <fa-icon [attr.data-inverted]="''" [attr.data-position]="'top center'"
-                [attr.data-tooltip]="'Appelez en video'" [icon]="icons.faVideo" class="popup faicon fas fa-2x">
+                [attr.data-tooltip]="'Appelez en video'" [icon]="icons.video" class="popup faicon fas fa-2x">
               </fa-icon>
               <fa-icon (click)="callAudio()" [attr.data-inverted]="''" [attr.data-position]="'top center'"
-                [attr.data-tooltip]="'Appelez en audio'" [icon]="icons.faPhone" class="popup faicon fas fa-2x">
+                [attr.data-tooltip]="'Appelez en audio'" [icon]="icons.phone" class="popup faicon fas fa-2x">
               </fa-icon>
               <fa-icon (click)="showVocalModal()" [attr.data-inverted]="''" [attr.data-position]="'top center'"
-                [attr.data-tooltip]="'Message vocale'" [icon]="icons.faMicrophone" class="popup faicon fas fa-2x">
+                [attr.data-tooltip]="'Message vocale'" [icon]="icons.microphone" class="popup faicon fas fa-2x">
               </fa-icon>
 
               <fa-icon [attr.data-inverted]="''" [attr.data-position]="'top center'"
-                [attr.data-tooltip]="'Envoyé des images'" [icon]="icons.faImage" class="popup faicon fas fa-2x">
+                [attr.data-tooltip]="'Envoyé des images'" [icon]="icons.image" class="popup faicon fas fa-2x">
               </fa-icon>
               <fa-icon [attr.data-inverted]="''" [attr.data-position]="'top center'"
-                [attr.data-tooltip]="'Envoyé des fichiers'" [icon]="icons.faFile" class="popup faicon fas fa-2x">
+                [attr.data-tooltip]="'Envoyé des fichiers'" [icon]="icons.file" class="popup faicon fas fa-2x">
               </fa-icon>
 
               <div class="ui input icon inputMessageField">
@@ -151,7 +151,7 @@
           </div>
         </div>
       </div>
-      <div class="column" style="overflow-y: scroll; overflow-x: hidden;">
+      <div id="friendActions" class="column" style="overflow-y: scroll; overflow-x: hidden;">
         <div class="ui form">
 
           <div class="field" style="text-align: center;">
@@ -174,14 +174,14 @@
 <div class="ui basic modal" id="msgVocalModal">
   <div class="ui icon header">
     <div (click)="recordVocalMessage()" [attr.working]="false" id="messageVocalModal__">
-      <fa-icon [icon]="icons.faMicrophone" class="fas fa-4x"></fa-icon>
+      <fa-icon [icon]="icons.microphone" [ngClass]="['fas',faIconSize]" ></fa-icon>
     </div>
     <br>
     <p id="messageVocalModalDesc__">Cliquez sur le micro pour commencer ou recommencer.</p>
   </div>
 
   <div class="actions" style="text-align: center;">
-    <div class="ui cancel blue button inverted" style="width:35%;">
+    <div class="ui cancel button inverted" style="width:35%;">
       Quitter
     </div>
     <div class="ui blue ok inverted button" style="width:35%;">
@@ -195,7 +195,7 @@
   <div class="ui icon header">
     <img id="friendImageAudioCall" src="{{wahid}}" class="ui medium circular image">
     <div id="audioCallEffect__">
-      <fa-icon [icon]="icons.faPhone" class="fas fa-4x"></fa-icon>
+      <fa-icon [icon]="icons.phone" [ngClass]="['fas', faIconSize]"></fa-icon>
     </div>
   </div>
 

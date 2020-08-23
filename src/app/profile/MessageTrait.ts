@@ -1,4 +1,5 @@
 import { Renderer2 } from '@angular/core';
+import { prefix } from '@fortawesome/free-solid-svg-icons';
 declare var $: any;
 export class MessagesTrait {
   public count = 0;
@@ -63,6 +64,7 @@ export class Message {
   public value: any;
   private count_msg_sended = 0;
   public newmsgcl = ''
+  public static prefix = 1;
   constructor(self:boolean, value:any, send?:string, seen?:string, id?:number, from?:number, type?:1|2|3|4|5){
     this.id = id;
     this.from = from;
@@ -77,7 +79,7 @@ export class Message {
   }
   public getWidth(){
     if( typeof( this.value ) == 'string' )
-      return (this.value.length + 5 ) + '%';
+      return ( (this.value.length + 5 ) * Message.prefix )+ '%';
   }
 
   public createTextMsg(rendrer: Renderer2): any{

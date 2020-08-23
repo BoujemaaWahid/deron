@@ -92,3 +92,15 @@ i {
   border-radius: 25px;
   font-weight: bold;
 }
+#search_people_1_ex {
+  border-radius: 25px;
+  font-weight: bold;
+}
+@media screen and (max-width: 950px){
+  #menu_basic{display: none;}
+  #menu_res{display:flex;}
+}
+@media screen and (min-width: 951px){
+  #menu_basic{display: flex;margin-top:0%;}
+  #menu_res{display:none;}
+}

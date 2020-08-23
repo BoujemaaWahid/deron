@@ -7,9 +7,6 @@ import {
   Renderer2
 } from '@angular/core';
 import {
-  Icons
-} from './Icons';
-import {
   Friends
 } from './Friends';
 import {
@@ -19,6 +16,7 @@ import {
 declare var $: any;
 import * as moment from 'moment';
 import { SoundEffects } from '../bw/SoundEffects';
+import { Icons } from '../bw/Icons';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -28,13 +26,13 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   @ViewChild('MESSAGES_CONTAINER', {
     static: true
   }) MESSAGES_CONTAINER: ElementRef;
-  sendMsgSound = new Audio('assets/intuition.mp3')
-  writingSound = new Audio('assets/wind-up-3.mp3')
+
   writingBubbles: any;
+  faIconSize: string;
   friends_list = new Array < Friends > ();
   messageTrait = new MessagesTrait();
   friends = new Array < Friends > ();
-  icons = new Icons();
+  icons = Icons.icons;
   wahid = "https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/11880505_389864781223543_6418437934454991901_n.jpg?_nc_cat=107&_nc_sid=85a577&_nc_ohc=Ot20xwa3DXgAX9H6vPF&_nc_ht=scontent-cdg2-1.xx&oh=1edc6c96c07dc0ac819c1549705e4bec&oe=5F61EE7B"
   nada = "https://scontent-cdg2-1.cdninstagram.com/v/t51.2885-15/e35/107118697_286492019462675_5363744277865594370_n.jpg?_nc_ht=scontent-cdg2-1.cdninstagram.com&_nc_cat=111&_nc_ohc=kwW-7aqWy70AX_DJyQ3&oh=d7faf769f16d89b7fbd92f1ef58c10e1&oe=5F620045"
   zied = "https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/10383015_659507697451884_5463364360211764491_n.jpg?_nc_cat=108&_nc_sid=85a577&_nc_ohc=LH_labOQjk8AX_-CErk&_nc_ht=scontent-cdg2-1.xx&oh=5cec39ed56ed7b8cf2c64c3bc999a2a7&oe=5F635E4A"
@@ -113,7 +111,17 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     })
     
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let self = this;
+    this.faIconSize = Icons.getSize(window.innerWidth)
+    toMobileMode()
+    Message.prefix = ( window.innerWidth <= 500)?2:1;
+    window.onresize = function(){
+      self.faIconSize = Icons.getSize(window.innerWidth)
+      toMobileMode();
+      Message.prefix = ( window.innerWidth <= 500)?2:1;
+    }
+  }
 
 
   updateFriendsList(event) {
@@ -131,7 +139,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     let nmsg = msg.createTextMsg(this.rendrer)
     this.rendrer.appendChild(this.MESSAGES_CONTAINER.nativeElement, nmsg)
     event.target.value = ""
-    this.sendMsgSound.play()
+    SoundEffects.effects.sendMessage.play()
     effectNewMsg()
   }
   showVocalModal() {
@@ -158,6 +166,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     SoundEffects.effects.whenCalling.loop = true
     SoundEffects.playWhenCalling()
   }
+
 }
 
 
@@ -181,12 +190,32 @@ function effectNewMsg() {
   scrollInSend()
 }
 
+
 function scrollInSend() {
   let container = document.getElementsByClassName('messages')[0]
   let fchild = container.firstElementChild
   container.scrollBy({
     top: container.clientHeight * fchild.childElementCount * 3
   })
+}
+function toMobileMode(){
+  let width = window.innerWidth;
+  let friendsColumn = document.getElementById("friendsColumn")
+  let friendActions = document.getElementById("friendActions")
+  let friendMessagesArea = document.getElementById("friendMessagesArea")
+  let sfi = document.getElementById("sfi__")
+  if( width < 950 ){
+    friendsColumn.style.display = "none";
+    friendActions.style.display = "none";
+    friendMessagesArea.classList.remove('ten','wide')
+    sfi.style.display = "none";
+  }
+  else if ( width >= 950 ){
+    friendsColumn.style.display = "block";
+    friendActions.style.display = "block";
+    sfi.style.display = "block";
+    friendMessagesArea.classList.add('ten','wide')
+  }
 }
 $(function () {
   $(document).ready(function () {
@@ -234,6 +263,5 @@ $(function () {
       $(".inputMessageField").removeClass('openInputMsg')
       $(".inputMessageField").addClass('closeInputMsg')
     });
-
   })
 }())

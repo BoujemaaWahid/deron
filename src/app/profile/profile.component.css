@@ -282,6 +282,7 @@
   transform: translate(0.5vh, 83.5vh);
 }
 
+
 @media screen and (max-width: 1065px) {
   .item_block {
     display: inline-table;
@@ -374,4 +375,25 @@
 #friendImageAudioCall{
   margin-left:-5%;position:absolute;width:100px;
   animation: moveFriendImage 5s infinite;
+}
+@media screen and (max-width: 800px){
+  #friendImageAudioCall{ width:90px; }
+}
+@media screen and (max-width: 700px){
+  #friendImageAudioCall{ width:80px; }
+}
+@media screen and (max-width: 600px){
+  #friendImageAudioCall{ width:70px; }
+}
+@media screen and (max-width: 500px){
+  #friendImageAudioCall{ width:60px; }
+}
+@media screen and (max-width: 400px){
+  #friendImageAudioCall{ width:40px; }
+}
+@media screen and (max-width: 300px){
+  #friendImageAudioCall{ width:30px; }
+}
+@media screen and (max-width: 200px){
+  #friendImageAudioCall{ width:20px; }
 }
