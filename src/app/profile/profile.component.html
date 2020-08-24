@@ -92,12 +92,17 @@
             <ng-container *ngFor="let i of messages; let last=last">
 
               <div [ngClass]="['field']" style="width: 100%">
+                
+                <!--seen
+                <img class="ui image" style="width:15px;border-radius: 10px;float:right;transform:translateY(1px)" src="{{wahid}}"/>
+                -->
                 <div [attr.data-variation]="'inverted'" [attr.data-position]="i.self==true?'left center':'right center'"
                   [attr.data-html]="i.getTitle()"
                   [ngClass]="['msgPopup', i.newmsgcl,'msgContent', i.self == true?'msg_self':'msg_friend']"
                   [ngStyle]="{'width': i.getWidth()}">
                   <p class="message_text_value">{{i.value}}</p>
                 </div>
+                
               </div>
 
             </ng-container>
