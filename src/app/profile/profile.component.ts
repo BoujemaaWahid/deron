@@ -263,5 +263,8 @@ $(function () {
       $(".inputMessageField").removeClass('openInputMsg')
       $(".inputMessageField").addClass('closeInputMsg')
     });
+
+    $("#itemsBottomBarTr").click(function(){$("#resExtrasbar__").sidebar('toggle')})
+    $("#leftSideBarTr").click(function(){$("#res_sidebar_friends_list").sidebar('toggle')})
   })
 }())

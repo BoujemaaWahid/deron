@@ -376,24 +376,40 @@
   margin-left:-5%;position:absolute;width:100px;
   animation: moveFriendImage 5s infinite;
 }
+#decrosh_btn{
+  width: 40%;
+}
+#audioCallModal__{
+  margin-left:5%;
+}
+@media screen and( max-width: 950px){
+  .faib{display: none;}
+}
 @media screen and (max-width: 800px){
   #friendImageAudioCall{ width:90px; }
+  #decrosh_btn{margin-right: 1%;}
 }
 @media screen and (max-width: 700px){
   #friendImageAudioCall{ width:80px; }
+  #decrosh_btn{margin-right: 2%;}
 }
 @media screen and (max-width: 600px){
   #friendImageAudioCall{ width:70px; }
+  #decrosh_btn{margin-right: 3%;}
 }
 @media screen and (max-width: 500px){
   #friendImageAudioCall{ width:60px; }
+  #decrosh_btn{margin-right: 4%;}
 }
 @media screen and (max-width: 400px){
   #friendImageAudioCall{ width:40px; }
+  #decrosh_btn{margin-right: 5%;}
 }
 @media screen and (max-width: 300px){
   #friendImageAudioCall{ width:30px; }
+  #decrosh_btn{margin-right: 6%;}
 }
 @media screen and (max-width: 200px){
   #friendImageAudioCall{ width:20px; }
+  #decrosh_btn{margin-right: 7%;}
 }

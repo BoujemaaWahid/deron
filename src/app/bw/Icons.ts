@@ -1,4 +1,4 @@
-import { faVideo, faPhone, faImage, faFile, faMicrophone, faPlayCircle } from '@fortawesome/free-solid-svg-icons';
+import { faVideo, faPhone, faImage, faFile, faMicrophone, faPlayCircle, faChevronLeft, faPaperPlane, faBars } from '@fortawesome/free-solid-svg-icons';
 export class Icons {
     public static icons = {
         video: faVideo,
@@ -6,7 +6,10 @@ export class Icons {
         image: faImage,
         file: faFile,
         play: faPlayCircle,
-        microphone: faMicrophone
+        microphone: faMicrophone,
+        left: faChevronLeft,
+        send: faPaperPlane,
+        bars: faBars
     }
 
     public static getSize(width: number): string{

@@ -26,7 +26,7 @@
       <div class="row ui input icon search_friend_input_" id="sfi__">
         <input placeholder="Trouver des contactes...." (keyup)="updateFriendsList($event)" appFocusPulse
           style="border-radius:25px;background:#0d0f10;color:white;font-weight:bold;">
-        <i class="user icon" style="color:white"></i>
+        <i class="user icon" style="color:white;transform:translateY(6px)"></i>
       </div>
       <div id="friendMessagesArea" class="ten wide column" style="height:100%;">
         <div class="row" style="display: flow-root;">
@@ -126,27 +126,58 @@
           <div id="btmROW" class="row">
             <div class="column" style="display:inherit">
               <fa-icon [attr.data-inverted]="''" [attr.data-position]="'top center'"
-                [attr.data-tooltip]="'Appelez en video'" [icon]="icons.video" class="popup faicon fas fa-2x">
+                [attr.data-tooltip]="'Appelez en video'" [icon]="icons.video" class="popup faib faicon fas fa-2x">
               </fa-icon>
               <fa-icon (click)="callAudio()" [attr.data-inverted]="''" [attr.data-position]="'top center'"
-                [attr.data-tooltip]="'Appelez en audio'" [icon]="icons.phone" class="popup faicon fas fa-2x">
+                [attr.data-tooltip]="'Appelez en audio'" [icon]="icons.phone" class="popup faib faicon fas fa-2x">
               </fa-icon>
               <fa-icon (click)="showVocalModal()" [attr.data-inverted]="''" [attr.data-position]="'top center'"
-                [attr.data-tooltip]="'Message vocale'" [icon]="icons.microphone" class="popup faicon fas fa-2x">
+                [attr.data-tooltip]="'Message vocale'" [icon]="icons.microphone" class="popup faib faicon fas fa-2x">
               </fa-icon>
 
               <fa-icon [attr.data-inverted]="''" [attr.data-position]="'top center'"
-                [attr.data-tooltip]="'Envoyé des images'" [icon]="icons.image" class="popup faicon fas fa-2x">
+                [attr.data-tooltip]="'Envoyé des images'" [icon]="icons.image" class="popup faib faicon fas fa-2x">
               </fa-icon>
               <fa-icon [attr.data-inverted]="''" [attr.data-position]="'top center'"
-                [attr.data-tooltip]="'Envoyé des fichiers'" [icon]="icons.file" class="popup faicon fas fa-2x">
+                [attr.data-tooltip]="'Envoyé des fichiers'" [icon]="icons.file" class="popup faib faicon fas fa-2x">
               </fa-icon>
 
-              <div class="ui input icon inputMessageField">
+              <div class="ui input icon inputMessageField" id="i1">
                 <input (keypress)="sendMessage($event)" appFocusPulse id="msgInput" placeholder="Message..."
                   type="text">
                 <i class="comment alternate outline icon"></i>
               </div>
+              <div id="i2">
+                <div class="ui menu inverted" style="background: none;width:100%;transform:translateY(-5px);">
+                    <a class="item" style="width:80%">
+                      <div class="ui input icon inputMessageField_res">
+                        <input (keypress)="sendMessage($event)" appFocusPulse id="msgInput_" placeholder="Message..."
+                  type="text">
+                  
+                <i class="comment alternate outline icon"></i>
+                      </div>
+
+                    </a>
+                    <a class="item">
+                      <fa-icon [icon]="icons.send" style="color:#0275d8" [ngClass]="['fas', faIconSize]"></fa-icon>
+                    </a>
+                    
+                    <a class="item">
+                      <fa-icon id="itemsBottomBarTr" [icon]="icons.bars" style="color:#0275d8" [ngClass]="['fas', faIconSize]"></fa-icon>
+                    </a>
+                </div>
+              <!--<div class="ui input icon inputMessageField_res">
+              
+                <input (keypress)="sendMessage($event)" appFocusPulse id="msgInput_" placeholder="Message..."
+                  type="text">
+                  
+                <i class="comment alternate outline icon"></i>
+                
+              </div>
+              <fa-icon [icon]="icons.send" [ngClass]="['faicon', 'fas', (faIconSize=='fa-1x')?'fa-2x':faIconSize]"></fa-icon>
+            -->
+            </div>
+              
             </div>
           </div>
         </div>
@@ -191,7 +222,7 @@
 </div>
 
 
-<div class="ui basic modal" id="audioCallModal__">
+<div class="ui basic modal" id="audioCallModal__" >
   <div class="ui icon header">
     <img id="friendImageAudioCall" src="{{wahid}}" class="ui medium circular image">
     <div id="audioCallEffect__">
@@ -200,8 +231,34 @@
   </div>
 
   <div class="actions" style="text-align: center;">
-    <div class="ui cancel blue button inverted" style="width:40%;">
+    <div class="ui cancel blue button inverted" id="decrosh_btn">
       Décrosher
     </div>
   </div>
+</div>
+
+
+
+
+<div id="res_sidebar_friends_list" class="ui left vertical inverted sidebar menu">
+  <a class="item">
+    <i class="home icon"></i>
+    Home
+  </a>
+  <a class="item">
+    <i class="block layout icon"></i>
+    Topics
+  </a>
+  <a class="item">
+    <i class="smile icon"></i>
+    Friends
+  </a>
+</div>
+
+<div class="ui bottom sidebar menu inverted five item" id="resExtrasbar__">
+  <a class="item"><fa-icon [icon]="icons.video" class="faicon fas fa-2x"></fa-icon></a>
+  <a class="item"><fa-icon (click)="callAudio()" [icon]="icons.phone" class="faicon fas fa-2x"></fa-icon></a>
+  <a class="item"><fa-icon (click)="showVocalModal()" [icon]="icons.microphone" class="faicon fas fa-2x"></fa-icon></a>
+  <a class="item"><fa-icon [icon]="icons.image" class="faicon fas fa-2x"></fa-icon></a>
+  <a class="item"><fa-icon  [icon]="icons.file" class="faicon fas fa-2x"></fa-icon></a>
 </div>

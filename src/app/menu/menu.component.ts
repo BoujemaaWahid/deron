@@ -13,11 +13,11 @@ declare var $:any;
 export class MenuComponent implements OnInit {
   people = new People()
   constructor(private service: MenuService) { 
-    this.service.notification.subscribe(res=>{
+    /*this.service.notification.subscribe(res=>{
       if( res == null )return;
       Init.shakeInfoNotify()
       Init.shakeMsgNotify()
-    })
+    })*/
   }
   ngOnInit(): void {
     Init.init()
