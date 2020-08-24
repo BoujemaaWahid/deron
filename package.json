@@ -3,17 +3,24 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --output-path angularapp --aot --prod"
   },
   "private": true,
+  "engines": {
+    "node": "v12.15.0",
+    "npm": "6.13.14"
+  },
   "dependencies": {
     "@angular/animations": "~9.0.5",
+    "@angular/cli": "^10.0.7",
     "@angular/common": "~9.0.5",
     "@angular/compiler": "~9.0.5",
+    "@angular/compiler-cli": "^9.0.7",
     "@angular/core": "~9.0.5",
     "@angular/forms": "~9.0.5",
     "@angular/platform-browser": "~9.0.5",
@@ -27,6 +34,7 @@
     "angularx-qrcode": "^10.0.6",
     "aos": "^2.3.4",
     "crypto-random-string": "^3.2.0",
+    "express": "^4.17.1",
     "font-awesome": "^4.7.0",
     "idb": "^5.0.4",
     "ipinfo": "^1.5.0",
@@ -34,16 +42,18 @@
     "moment": "^2.27.0",
     "ng2-izitoast": "^2.0.0",
     "notiflix": "^2.3.3",
+    "path": "^0.12.7",
     "rxjs": "~6.5.4",
     "semantic-ui-css": "^2.4.1",
     "ts-md5": "^1.2.7",
     "tslib": "^1.10.0",
+    "typescript": "~3.7.5",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1000.5",
-    "@angular/cli": "~9.0.5",
-    "@angular/compiler-cli": "~9.0.5",
+    "@angular/cli": "^10.0.7",
+    "@angular/compiler-cli": "^9.0.7",
     "@angular/language-service": "~9.0.5",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
