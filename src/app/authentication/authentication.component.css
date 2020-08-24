@@ -3,6 +3,9 @@
     text-align:  -moz-center;
     text-align: -ms-center;
 }
-@media screen and (max-width: 1000px){
-    /*#item_block{text-align: center;}*/
+@media screen and (max-width: 500px){
+    #logo{width: 100px;}
+}
+@media screen and (max-width: 700px){
+    #logo{width: 150px;}
 }
